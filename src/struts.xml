@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+    <constant name="struts.devMode" value="true" />
+	<constant name="struts.i18n.encoding" value="utf-8"/>
+	
+	<package name="user" extends="struts-default">
+		<action name="*">
+			<result>/WEB-INF/content/index.jsp</result>
+		</action>
+		<action name="register" class="com.ccnu.jh.action.UserAction"
+			method="register">
+			<result>/WEB-INF/content/welcome.jsp</result>
+		</action>
+		<action name="login" class="com.ccnu.jh.action.UserAction"
+			method="login">
+			<result name="error">/WEB-INF/content/error.jsp</result>
+			<result>/WEB-INF/content/welcome.jsp</result>
+		</action>
+		<action name="logout" class="com.ccnu.jh.action.UserAction"
+			method="logout">
+			<result type="redirectAction">getlogin</result>
+		</action>
+	</package>
+
+</struts>
