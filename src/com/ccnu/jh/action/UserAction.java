@@ -1,14 +1,5 @@
 package com.ccnu.jh.action;
 
-
-import org.hibernate.Query;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.boot.MetadataSources;
-import org.hibernate.boot.registry.StandardServiceRegistry;
-import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
-import org.hibernate.cfg.Configuration;
-
 import com.ccnu.jh.dao.impl.UserDaoImpl;
 import com.ccnu.jh.model.User;
 import com.opensymphony.xwork2.ActionContext;
@@ -25,6 +16,9 @@ public class UserAction extends ActionSupport {
 		this.user = user;
 	}
 	
+	/*
+	 * 检查邮箱是否存在
+	 */
 	public String checkEmail() throws Exception {
 		ActionContext act = ActionContext.getContext();
 		boolean exist = false;
@@ -37,6 +31,9 @@ public class UserAction extends ActionSupport {
 		return SUCCESS;
 	}
 	
+	/*
+	 * 注册
+	 */
 	public String register() throws Exception {
 		UserDaoImpl udi = new UserDaoImpl();
 		
@@ -45,6 +42,9 @@ public class UserAction extends ActionSupport {
 		return SUCCESS;
 	}
 
+	/*
+	 * 登录
+	 */
 	public String login() throws Exception {
 		ActionContext act = ActionContext.getContext();
 		UserDaoImpl udi = new UserDaoImpl();
@@ -56,6 +56,9 @@ public class UserAction extends ActionSupport {
 		return ERROR;
 	}
 	
+	/*
+	 * 登出
+	 */
 	public String logout() throws Exception {
 		ActionContext.getContext().getSession().clear();
 		return SUCCESS;

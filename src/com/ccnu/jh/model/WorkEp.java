@@ -11,8 +11,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="workpurpose")
-public class WorkPurpose {
+@Table(name="workexperience")
+public class WorkEp {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
@@ -72,6 +72,5 @@ public class WorkPurpose {
 	public void setResume(Resume resume) {
 		this.resume = resume;
 	}
-	
-	
+		
 }

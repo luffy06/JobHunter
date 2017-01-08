@@ -8,7 +8,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="jobstatistics")
-public class JobStatistics {
+public class JobStat {
 	@Id
 	private int id;
 	private int browsecount;

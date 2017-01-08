@@ -27,16 +27,16 @@ public class Resume {
 	private User user;
 	
 	@OneToMany(mappedBy="resume")
-	private Set<EducationExperience> eduexp = new HashSet<EducationExperience>();
+	private Set<EduExp> eduexp = new HashSet<EduExp>();
 	
 	@OneToMany(mappedBy="resume")
-	private Set<ProjectExperience> proexp = new HashSet<ProjectExperience>();
+	private Set<ProExp> proexp = new HashSet<ProExp>();
 	
 	@OneToMany(mappedBy="resume")
-	private Set<WorkExperience> workep = new HashSet<WorkExperience>();
+	private Set<WorkEp> workep = new HashSet<WorkEp>();
 	
 	@OneToMany(mappedBy="resume")
-	private Set<WorkPurpose> workpp = new HashSet<WorkPurpose>();
+	private Set<WorkPp> workpp = new HashSet<WorkPp>();
 		
 	@OneToMany(mappedBy="resume")
 	private Set<ApplyDetail> applydetail = new HashSet<ApplyDetail>();
@@ -105,35 +105,35 @@ public class Resume {
 		this.user = user;
 	}
 
-	public Set<EducationExperience> getEduexp() {
+	public Set<EduExp> getEduexp() {
 		return eduexp;
 	}
 
-	public void setEduexp(Set<EducationExperience> eduexp) {
+	public void setEduexp(Set<EduExp> eduexp) {
 		this.eduexp = eduexp;
 	}
 
-	public Set<ProjectExperience> getProexp() {
+	public Set<ProExp> getProexp() {
 		return proexp;
 	}
 
-	public void setProexp(Set<ProjectExperience> proexp) {
+	public void setProexp(Set<ProExp> proexp) {
 		this.proexp = proexp;
 	}
 
-	public Set<WorkExperience> getWorkep() {
+	public Set<WorkEp> getWorkep() {
 		return workep;
 	}
 
-	public void setWorkep(Set<WorkExperience> workep) {
+	public void setWorkep(Set<WorkEp> workep) {
 		this.workep = workep;
 	}
 
-	public Set<WorkPurpose> getWorkpp() {
+	public Set<WorkPp> getWorkpp() {
 		return workpp;
 	}
 
-	public void setWorkpp(Set<WorkPurpose> workpp) {
+	public void setWorkpp(Set<WorkPp> workpp) {
 		this.workpp = workpp;
 	}
 

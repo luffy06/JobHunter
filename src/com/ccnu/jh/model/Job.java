@@ -37,7 +37,7 @@ public class Job {
 	private Company company;
 	
 	@OneToOne(mappedBy="job")
-	private JobStatistics jobstatistics;
+	private JobStat jobstatistics;
 	
 	@OneToMany(mappedBy="job")
 	private Set<ApplyDetail> applydetail = new HashSet<ApplyDetail>();
@@ -138,11 +138,11 @@ public class Job {
 		this.company = company;
 	}
 
-	public JobStatistics getJobstatistics() {
+	public JobStat getJobstatistics() {
 		return jobstatistics;
 	}
 
-	public void setJobstatistics(JobStatistics jobstatistics) {
+	public void setJobstatistics(JobStat jobstatistics) {
 		this.jobstatistics = jobstatistics;
 	}
 

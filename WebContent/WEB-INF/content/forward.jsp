@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Welcome</title>
+<title>登录</title>
 </head>
 <body>
-	<p>欢迎！<a href="logout">登出</a></p>
+	<%response.sendRedirect("index.action"); %>
 </body>
 </html>

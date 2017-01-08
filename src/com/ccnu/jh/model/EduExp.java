@@ -11,17 +11,17 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="projectexperience")
-public class ProjectExperience {
+@Table(name="educationexperience")
+public class EduExp {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
-	private String datetime;
+	private String starttime;
 	private String endtime;
-	private String projectname;
+	private int schoolid;
+	private String major;
+	private String diplomaid;
 	private String description;
-	private String url;
-	private String achievement;
 	
 	@ManyToOne(cascade={CascadeType.ALL}, fetch=FetchType.EAGER)
 	@JoinColumn(name="resume_id")
@@ -35,12 +35,12 @@ public class ProjectExperience {
 		this.id = id;
 	}
 
-	public String getDatetime() {
-		return datetime;
+	public String getStarttime() {
+		return starttime;
 	}
 
-	public void setDatetime(String datetime) {
-		this.datetime = datetime;
+	public void setStarttime(String starttime) {
+		this.starttime = starttime;
 	}
 
 	public String getEndtime() {
@@ -51,12 +51,28 @@ public class ProjectExperience {
 		this.endtime = endtime;
 	}
 
-	public String getProjectname() {
-		return projectname;
+	public int getSchoolid() {
+		return schoolid;
 	}
 
-	public void setProjectname(String projectname) {
-		this.projectname = projectname;
+	public void setSchoolid(int schoolid) {
+		this.schoolid = schoolid;
+	}
+
+	public String getMajor() {
+		return major;
+	}
+
+	public void setMajor(String major) {
+		this.major = major;
+	}
+
+	public String getDiplomaid() {
+		return diplomaid;
+	}
+
+	public void setDiplomaid(String diplomaid) {
+		this.diplomaid = diplomaid;
 	}
 
 	public String getDescription() {
@@ -67,29 +83,12 @@ public class ProjectExperience {
 		this.description = description;
 	}
 
-	public String getUrl() {
-		return url;
-	}
-
-	public void setUrl(String url) {
-		this.url = url;
-	}
-
-	public String getAchievement() {
-		return achievement;
-	}
-
-	public void setAchievement(String achievement) {
-		this.achievement = achievement;
-	}
-
 	public Resume getResume() {
 		return resume;
 	}
 
 	public void setResume(Resume resume) {
 		this.resume = resume;
-	}	
-	
+	}
 	
 }
