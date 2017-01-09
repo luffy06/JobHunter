@@ -39,15 +39,15 @@
 		<mapping class="com.ccnu.jh.model.ApplyDetail"/>
 		<mapping class="com.ccnu.jh.model.Company"/>
 		<mapping class="com.ccnu.jh.model.Dictionary"/>
-		<mapping class="com.ccnu.jh.model.EducationExperience"/>
+		<mapping class="com.ccnu.jh.model.EduExp"/>
 		<mapping class="com.ccnu.jh.model.Favorite"/>
 		<mapping class="com.ccnu.jh.model.Job"/>
-		<mapping class="com.ccnu.jh.model.JobStatistics"/>
-		<mapping class="com.ccnu.jh.model.ProjectExperience"/>
+		<mapping class="com.ccnu.jh.model.JobStat"/>
+		<mapping class="com.ccnu.jh.model.ProExp"/>
 		<mapping class="com.ccnu.jh.model.Resume"/>
 		<mapping class="com.ccnu.jh.model.User"/>
-		<mapping class="com.ccnu.jh.model.WorkExperience"/>
-		<mapping class="com.ccnu.jh.model.WorkPurpose"/>
+		<mapping class="com.ccnu.jh.model.WorkEp"/>
+		<mapping class="com.ccnu.jh.model.WorkPp"/>
 
 		<!-- 支持缓存的类 -->
 		<!-- <class-cache usage="read-write"

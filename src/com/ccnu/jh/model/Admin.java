@@ -10,7 +10,6 @@ import javax.persistence.Table;
 @Table(name="admin")
 public class Admin {
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	private String password;
 	

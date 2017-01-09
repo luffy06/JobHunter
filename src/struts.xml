@@ -10,33 +10,33 @@
 	<constant name="struts.i18n.encoding" value="utf-8"/>
 	
 	<package name="default" extends="struts-default">
-		<action name="*">
-			<result>/WEB-INF/content/forward.jsp</result>
-		</action>
 		<action name="index">
 			<result>/WEB-INF/content/index.jsp</result>
 		</action>
 		<action name="error">
 			<result>/WEB-INF/content/error.jsp</result>
 		</action>
+		<action name="sidebar_*">
+			<result>/WEB-INF/content/sidebar/{1}.jsp</result>
+		</action>
 	</package>
 	
 	<package name="user" extends="struts-default">
 		<action name="get*">
-			<result>/WEB-INF/content/{1}.jsp</result>
+			<result>/WEB-INF/content/user/{1}.jsp</result>
 		</action>
 		<action name="register" class="com.ccnu.jh.action.UserAction"
 			method="register">
-			<result type="redirectAction">getlogin</result>
+			<result type="redirect">getlogin</result>
 		</action>
 		<action name="login" class="com.ccnu.jh.action.UserAction"
 			method="login">
-			<result name="error" type="redirectAction">error</result>
-			<result>index</result>
+			<result name="error" type="redirect">error</result>
+			<result type="redirect">index</result>
 		</action>
 		<action name="logout" class="com.ccnu.jh.action.UserAction"
 			method="logout">
-			<result type="redirectAction">getlogin</result>
+			<result type="redirect">index</result>
 		</action>
 	</package>
 	

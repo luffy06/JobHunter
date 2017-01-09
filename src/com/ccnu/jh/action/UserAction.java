@@ -1,6 +1,10 @@
 package com.ccnu.jh.action;
 
+import org.apache.struts2.ServletActionContext;
+
+import com.ccnu.jh.dao.impl.CompanyDaoImpl;
 import com.ccnu.jh.dao.impl.UserDaoImpl;
+import com.ccnu.jh.model.Company;
 import com.ccnu.jh.model.User;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
@@ -36,8 +40,18 @@ public class UserAction extends ActionSupport {
 	 */
 	public String register() throws Exception {
 		UserDaoImpl udi = new UserDaoImpl();
+		CompanyDaoImpl cdi = new CompanyDaoImpl();
 		
+		
+		user.setId(user.getEmail().hashCode());
 		udi.save(user);
+		
+		String role = ServletActionContext.getRequest().getParameter("role");
+		if (role.equals("hr")) {
+			Company c = new Company();
+			c.setId(user.getId());
+			cdi.save(c);
+		}
 		
 		return SUCCESS;
 	}
@@ -50,6 +64,9 @@ public class UserAction extends ActionSupport {
 		UserDaoImpl udi = new UserDaoImpl();
 		if (udi.check(user)) {
 			user = udi.getByEmail(user.getEmail());
+			System.out.println("username: " + user.getUsername());
+			
+			act.getSession().put("username", user.getUsername());
 			act.getSession().put("userid", user.getId());
 			return SUCCESS;
 		}

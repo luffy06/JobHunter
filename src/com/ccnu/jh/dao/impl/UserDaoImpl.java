@@ -19,8 +19,10 @@ public class UserDaoImpl implements UserDao {
 		session.beginTransaction();
 		
 		boolean success = false;
-		String hql = "from user where email=? and password=?";
-		Query q = session.createQuery(hql);
+		String hql = "from User u where u.email=:email and u.password=:password";
+		Query q = session.createQuery(hql)
+						.setString("email", user.getEmail())
+						.setString("password", user.getPassword());
 		if (q != null)
 			success = true;
 				
@@ -62,7 +64,7 @@ public class UserDaoImpl implements UserDao {
 		Session session = sf.openSession();
 		session.beginTransaction();
 		
-		String hql = "delete user where id=?";
+		String hql = "delete User u where u.id=?";
 		session.createQuery(hql).setParameter(0, id);
 		
 		session.getTransaction().commit();
@@ -90,11 +92,8 @@ public class UserDaoImpl implements UserDao {
 		Session session = sf.openSession();
 		session.beginTransaction();
 		
-		String hql = "from user wher email=?";
-		User user = null;
-		List l = session.createQuery(hql).setParameter(0, email).list();
-		if (l != null)
-			user = (User)l.get(0);
+		String hql = "from User u where u.email=:email";
+		User user = (User)session.createQuery(hql).setString("email", email).uniqueResult();
 		
 		session.getTransaction().commit();
 		session.close();
@@ -108,7 +107,7 @@ public class UserDaoImpl implements UserDao {
 		Session session = sf.openSession();
 		session.beginTransaction();
 		
-		String hql = "from user"; 
+		String hql = "from User u"; 
 		Query q = session.createQuery(hql);
 		List<User> ul = q.list();
 		

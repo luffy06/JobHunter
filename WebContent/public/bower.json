@@ -1,0 +1,20 @@
+{
+  "name": "packagelist",
+  "homepage": "https://github.com/luffy06/JobHunter",
+  "authors": [
+    "luffy06 <534427411@qq.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}
