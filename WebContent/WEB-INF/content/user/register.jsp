@@ -42,8 +42,8 @@
 							<label for="inputsex" class="col-md-3 control-label">姓别</label>
 							<div class="col-md-9">
 							   	<select name="user.sex" class="form-control"> 
-								    <option value="true">男</option> 
-								    <option value="false">女</option> 
+								    <option value="1">男</option> 
+								    <option value="0">女</option> 
 							    </select>
 							</div>
 						</div>
