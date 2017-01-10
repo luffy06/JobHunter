@@ -1,13 +1,24 @@
+/*
+ * 主题：字典
+ * 文件名：Dictionary.java
+ * 作者：吴尚宇
+ * 版权：版权所有2015-2016 华中师范大学
+ * 创建日期：2017-01-10
+ * 描述：
+ */
 package com.ccnu.jh.model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="dictionary")
-public class Dictionary {
+public class Dict {
 	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int dictitemid;
 	private int dicttypeid;
 	private String name;

@@ -1,3 +1,11 @@
+/*
+ * 主题：岗位统计信息
+ * 文件名：JobStat.java
+ * 作者：吴尚宇
+ * 版权：版权所有2015-2016 华中师范大学
+ * 创建日期：2017-01-10
+ * 描述：
+ */
 package com.ccnu.jh.model;
 
 import javax.persistence.Entity;

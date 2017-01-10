@@ -40,7 +40,7 @@ public class JobDaoImpl implements JobDao {
 		Session session = sf.openSession();
 		session.beginTransaction();
 		
-		String hql = "delete from job where id=?";
+		String hql = "delete from job j where j.id=?";
 		session.createQuery(hql).setParameter(0, id);
 		
 		session.getTransaction().commit();
@@ -66,8 +66,8 @@ public class JobDaoImpl implements JobDao {
 		Session session = sf.openSession();
 		session.beginTransaction();
 		
-		String hql = "from job where jobname=?";
-		Query q = session.createQuery(hql);
+		String hql = "from job j where j.jobname=?";
+		Query q = session.createQuery(hql).setParameter(0, jobname);
 		List<Job> joblist = q.list();
 		
 		session.getTransaction().commit();
@@ -81,7 +81,7 @@ public class JobDaoImpl implements JobDao {
 		Session session = sf.openSession();
 		session.beginTransaction();
 		
-		String hql = "from job";
+		String hql = "from job j";
 		Query q = session.createQuery(hql);
 		List<Job> joblist = q.list();
 		

@@ -39,7 +39,7 @@ public class AdminDaoImpl implements AdminDao {
 		Session session = sf.openSession();
 		session.beginTransaction();
 		
-		String hql = "delete admin where id=?";
+		String hql = "delete admin a where a.id=?";
 		session.createQuery(hql).setParameter(0, id);
 		
 		session.getTransaction().commit();
@@ -65,7 +65,7 @@ public class AdminDaoImpl implements AdminDao {
 		Session session = sf.openSession();
 		session.beginTransaction();
 		
-		String hql = "from admin";
+		String hql = "from admin a";
 		List<Admin> adminlist = session.createQuery(hql).list();
 		
 		session.getTransaction().commit();

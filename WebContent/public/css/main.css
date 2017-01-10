@@ -1,8 +1,10 @@
+/*主页*/
+/*主页导航*/
 .index-bar {
 	width: 100%;
 	height:auto;
 }
-
+/*主页内容*/
 .index-content {
 	background-image: url(../../../img/2135-18561.jpg);	
 	width: 100%;
@@ -11,7 +13,8 @@
 	padding-top: 200px;
 	position: fixed;
 }
-
+/*登录页*/
+/*登录界面内容*/
 .login-content {
 	background-image: url(../../../img/22.jpg);	
 	width: 100%;
@@ -20,10 +23,107 @@
 	padding-top: 150px;
 	position: fixed;
 }
-
+/*注册页*/
+/*注册界面内容*/
 .register-content {
 	width: 100%;
 	height: 100%;
 	margin-top:-30px;
 	padding-top: 100px;
 }
+/*岗位页*/
+
+/*岗位广告滑动栏*/
+.joblist-slide {
+	width: 100%;
+	height: auto;
+}
+/*岗位搜索栏*/
+.joblist-search {
+	width: 100%;
+	height: 50px;
+	margin-top: 10px;
+}
+
+/*岗位选择栏*/
+.joblist-select {
+	width: 100%;
+	height: auto;
+	margin-bottom: 20px;
+}
+
+/*岗位展示栏*/
+.joblist-show {
+	width: 100%;
+	
+}
+
+/*企业展示页*/
+/*企业搜索栏*/
+.company-all {
+	background-color: #f2f2f2;
+	padding-top: 50px;
+	height: 100%;
+}
+.company-search {
+	width: 100%;
+	height: auto;
+}
+/*企业列表*/
+.company-show {
+	margin-top: 50px;
+}
+
+/*企业详情*/
+/*企业详情内容*/
+.companyinfo-all {
+	margin-top: 30px;
+	padding-top: 20px;
+	background-color: #f2f2f2;
+	padding-left: 20px;
+}
+/*企业详情头部*/
+.companyinfo-head {
+	width: 100%;
+}
+/*企业详情内容*/
+.companyinfo-content {
+	margin-top:150px;
+}
+/*企业详情小标题*/
+.companyinfo-title {
+	margin-top: 30px;
+	height: 40px;
+	background-color:#53CAC3;
+	font-family: "微软雅黑";
+	font-size:16px;
+	color: white;
+	border-radius: 4px;
+}
+
+/*职位详情页*/
+/*职位搜索*/
+.jobinfo-search {
+	width: 100%;
+	height: auto;
+}
+/*职位详情内容*/
+.jobinfo-content {
+	margin-top: 30px;
+}
+
+/*个人中心详情页*/
+/*左侧列表*/
+.user-left {
+	text-align: center;
+	margin-top: -20px;
+}
+/*个人中心投递简历*/
+.user-post-resume {
+	font-family: "微软雅黑";
+	font-size: 20px;
+	border-bottom:1px solid black;
+	color: #53CAC3;
+	margin-bottom: 10px;
+}
+

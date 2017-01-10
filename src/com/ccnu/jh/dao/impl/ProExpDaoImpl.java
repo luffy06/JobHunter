@@ -39,7 +39,7 @@ public class ProExpDaoImpl implements ProExpDao {
 		Session session = sf.openSession();
 		session.beginTransaction();
 		
-		String hql = "delete projectexperience where id=?";
+		String hql = "delete projectexperience pe where pe.id=?";
 		session.createQuery(hql).setParameter(0, id);
 		
 		session.getTransaction().commit();
@@ -65,7 +65,7 @@ public class ProExpDaoImpl implements ProExpDao {
 		Session session = sf.openSession();
 		session.beginTransaction();
 		
-		String hql = "from projectexperience";
+		String hql = "from projectexperience pe";
 		List<ProExp> pelist = session.createQuery(hql).list();
 		
 		session.getTransaction().commit();

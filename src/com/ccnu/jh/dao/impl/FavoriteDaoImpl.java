@@ -39,7 +39,7 @@ public class FavoriteDaoImpl implements FavoriteDao {
 		Session session = sf.openSession();
 		session.beginTransaction();
 		
-		String hql = "delete favorite where id=?";
+		String hql = "delete favorite f where f.id=?";
 		session.createQuery(hql).setParameter(0, id);
 		
 		session.getTransaction().commit();

@@ -38,7 +38,7 @@
 		<mapping class="com.ccnu.jh.model.Admin"/>
 		<mapping class="com.ccnu.jh.model.ApplyDetail"/>
 		<mapping class="com.ccnu.jh.model.Company"/>
-		<mapping class="com.ccnu.jh.model.Dictionary"/>
+		<mapping class="com.ccnu.jh.model.Dict"/>
 		<mapping class="com.ccnu.jh.model.EduExp"/>
 		<mapping class="com.ccnu.jh.model.Favorite"/>
 		<mapping class="com.ccnu.jh.model.Job"/>

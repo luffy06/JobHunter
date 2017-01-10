@@ -39,7 +39,7 @@ public class ApplyDetailDaoImpl implements ApplyDetailDao {
 		Session session = sf.openSession();
 		session.beginTransaction();
 		
-		String hql = "delete applydetail where id=?";
+		String hql = "delete applydetail ad where ad.id=?";
 		session.createQuery(hql).setParameter(0, id);
 		
 		session.getTransaction().commit();
@@ -65,7 +65,7 @@ public class ApplyDetailDaoImpl implements ApplyDetailDao {
 		Session session = sf.openSession();
 		session.beginTransaction();
 		
-		String hql = "from applydetail";
+		String hql = "from applydetail ad";
 		List<ApplyDetail> adlist = session.createQuery(hql).list();
 		
 		session.getTransaction().commit();

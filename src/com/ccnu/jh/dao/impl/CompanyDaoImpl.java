@@ -39,7 +39,7 @@ public class CompanyDaoImpl implements CompanyDao {
 		Session session = sf.openSession();
 		session.beginTransaction();
 		
-		String hql = "delete company where id=?";
+		String hql = "delete company c where c.id=?";
 		session.createQuery(hql).setParameter(0, id);
 		
 		session.getTransaction().commit();
@@ -65,7 +65,7 @@ public class CompanyDaoImpl implements CompanyDao {
 		Session session = sf.openSession();
 		session.beginTransaction();
 		
-		String hql = "from company";
+		String hql = "from company c";
 		List<Company> clist = session.createQuery(hql).list();
 		
 		session.getTransaction().commit();

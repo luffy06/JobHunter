@@ -39,7 +39,7 @@ public class EduExpDaoImpl implements EduExpDao {
 		Session session = sf.openSession();
 		session.beginTransaction();
 		
-		String hql = "delete educationexperience where id=?";
+		String hql = "delete educationexperience ee where ee.id=?";
 		session.createQuery(hql).setParameter(0, id);
 		
 		session.getTransaction().commit();
@@ -65,7 +65,7 @@ public class EduExpDaoImpl implements EduExpDao {
 		Session session = sf.openSession();
 		session.beginTransaction();
 		
-		String hql = "from educationexperience";
+		String hql = "from educationexperience ee";
 		List<EduExp> eelist = session.createQuery(hql).list();
 		
 		session.getTransaction().commit();

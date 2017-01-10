@@ -40,18 +40,18 @@ public class UserAction extends ActionSupport {
 	 */
 	public String register() throws Exception {
 		UserDaoImpl udi = new UserDaoImpl();
-		CompanyDaoImpl cdi = new CompanyDaoImpl();
+//		CompanyDaoImpl cdi = new CompanyDaoImpl();
 		
 		
 		user.setId(user.getEmail().hashCode());
 		udi.save(user);
 		
-		String role = ServletActionContext.getRequest().getParameter("role");
-		if (role.equals("hr")) {
-			Company c = new Company();
-			c.setId(user.getId());
-			cdi.save(c);
-		}
+//		String role = ServletActionContext.getRequest().getParameter("role");
+//		if (role.equals("hr")) {
+//			Company c = new Company();
+//			c.setId(user.getId());
+//			cdi.save(c);
+//		}
 		
 		return SUCCESS;
 	}

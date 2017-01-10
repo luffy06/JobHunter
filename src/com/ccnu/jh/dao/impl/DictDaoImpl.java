@@ -6,11 +6,11 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-import com.ccnu.jh.dao.DictionaryDao;
-import com.ccnu.jh.model.Dictionary;
+import com.ccnu.jh.dao.DictDao;
+import com.ccnu.jh.model.Dict;
 
-public class DictionaryDaoImpl implements DictionaryDao {
-	public void save(Dictionary t) {
+public class DictDaoImpl implements DictDao {
+	public void save(Dict t) {
 		SessionFactory sf = new Configuration().configure().buildSessionFactory();
 		Session session = sf.openSession();
 		session.beginTransaction();
@@ -22,7 +22,7 @@ public class DictionaryDaoImpl implements DictionaryDao {
 		sf.close();
 	}
 	
-	public void update(Dictionary t) {
+	public void update(Dict t) {
 		SessionFactory sf = new Configuration().configure().buildSessionFactory();
 		Session session = sf.openSession();
 		session.beginTransaction();
@@ -39,7 +39,7 @@ public class DictionaryDaoImpl implements DictionaryDao {
 		Session session = sf.openSession();
 		session.beginTransaction();
 		
-		String hql = "delete dictionary where id=?";
+		String hql = "delete dictionary d where d.id=?";
 		session.createQuery(hql).setParameter(0, id);
 		
 		session.getTransaction().commit();
@@ -47,12 +47,12 @@ public class DictionaryDaoImpl implements DictionaryDao {
 		sf.close();
 	}
 	
-	public Dictionary get(int id) {
+	public Dict get(int id) {
 		SessionFactory sf = new Configuration().configure().buildSessionFactory();
 		Session session = sf.openSession();
 		session.beginTransaction();
 		
-		Dictionary d = session.get(Dictionary.class, id);
+		Dict d = session.get(Dict.class, id);
 		
 		session.getTransaction().commit();
 		session.close();
@@ -60,13 +60,41 @@ public class DictionaryDaoImpl implements DictionaryDao {
 		return d;
 	}
 	
-	public List<Dictionary> getAll() {
+	public Dict getByTypeId(int typeid) {
 		SessionFactory sf = new Configuration().configure().buildSessionFactory();
 		Session session = sf.openSession();
 		session.beginTransaction();
 		
-		String hql = "from dictionary";
-		List<Dictionary> dlist = session.createQuery(hql).list();
+		String hql = "select distinct d.description from Dict d where d.dicttypeid=?";
+		Dict d = (Dict)session.createQuery(hql).setParameter(0, typeid).list();
+		
+		session.getTransaction().commit();
+		session.close();
+		sf.close();
+		return d;
+	}
+	
+	public List<Dict> getAll() {
+		SessionFactory sf = new Configuration().configure().buildSessionFactory();
+		Session session = sf.openSession();
+		session.beginTransaction();
+		
+		String hql = "from dictionary d";
+		List<Dict> dlist = session.createQuery(hql).list();
+		
+		session.getTransaction().commit();
+		session.close();
+		sf.close();
+		return dlist;
+	}
+	
+	public List<Dict> getAllByTypeId(int typeid) {
+		SessionFactory sf = new Configuration().configure().buildSessionFactory();
+		Session session = sf.openSession();
+		session.beginTransaction();
+		
+		String hql = "from dictionary d where d.dicttypeid=?";
+		List<Dict> dlist = session.createQuery(hql).setParameter(0, typeid).list();
 		
 		session.getTransaction().commit();
 		session.close();

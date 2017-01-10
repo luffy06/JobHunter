@@ -10,7 +10,7 @@
 	<constant name="struts.i18n.encoding" value="utf-8"/>
 	
 	<package name="default" extends="struts-default">
-		<action name="index">
+		<action name="index" class="com.ccnu.jh.action.MainAction">
 			<result>/WEB-INF/content/index.jsp</result>
 		</action>
 		<action name="error">
@@ -43,7 +43,7 @@
 	<package name="company" extends="struts-default">
 		<action name="joblist" class="com.ccnu.jh.action.JobAction"
 			method="getJobList">
-			<result></result>
+			<result>/WEB-INF/content/main/joblist.jsp</result>
 		</action>
 	</package>
 

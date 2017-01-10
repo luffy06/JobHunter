@@ -19,13 +19,21 @@
 			<div class="row">
 				<div class="col-md-5 col-md-offset-3">
 					<form class="form-horizontal" action="register" role="form" id="registerform" method="post">
-						<!--<form class="form-group">
-							<label for="inputimage" class="col-md-2 control-label">头像</label>
-							<div class="col-md-10">
-							   	<input type="text" class="form-control" id="inputimage" placeholder="头像">
+						<div class="form-group">
+							<label for="inputname" class="col-md-3 control-label">头像</label>
+							<div class="col-md-9">
+								<c:forEach var="p" begin="0" end="1" step="1">
+									<div class="row">
+										<c:forEach var="x" begin="1" end="4" step="1">
+											<div class="col-md-3">
+												<img class="img-responsive img-rounded" alt="${x +4 * p}" src="public/img/userportrait/${x + 4 * p}.png">
+												<input type="radio" name="user.portrait" value="${x + 4 * p}">
+											</div>
+										</c:forEach>
+									</div>
+								</c:forEach>
 							</div>
-						</form>-->
-						<!--头像-->
+						</div>
 						<div class="form-group">
 							<label for="inputname" class="col-md-3 control-label">姓名</label>
 							<div class="col-md-9">
@@ -95,8 +103,8 @@
 		</div>
 	</div>
 	
-	<script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
-	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	<script src="public/bower_components/jquery/jquery.js"></script>
+	<script src="public/bower_components/dist/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="public/js/main.js"></script>
 </body>
 </html>
