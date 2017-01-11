@@ -101,7 +101,7 @@ create table projectexperience(
 
 create table job(
   jobid int(5) auto_increment,
-  companyid int(5),
+  userid int(5),
   jobtypeid int(5),
   jobname varchar(255),
   skillid int(5),
@@ -113,13 +113,13 @@ create table job(
   description text(65535),
   isclosed boolean,
   primary key(jobid),
-  foreign key(companyid) references company(companyid)
+  foreign key(userid) references user(userid)
 )
 
 create table jobstatistics(
   jobid int(5),
   browsecount int(5),
-  sharecount int(5),
+  zancount int(5),
   primary key(jobid),
   foreign key(jobid) references job(jobid)
 )
@@ -135,7 +135,7 @@ create table applydetail(
 )
 
 create table favorite(
-  favoriteid int(5) auto_increment,
+  favoriteid int(5),
   type int(5),
   userid int(5),
   createtime datetime,

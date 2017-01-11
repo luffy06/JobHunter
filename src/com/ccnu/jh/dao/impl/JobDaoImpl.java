@@ -11,6 +11,8 @@ import com.ccnu.jh.dao.JobDao;
 import com.ccnu.jh.model.Job;
 
 public class JobDaoImpl implements JobDao {
+	
+	
 	public void save(Job job) {
 		SessionFactory sf = new Configuration().configure().buildSessionFactory();
 		Session session = sf.openSession();
@@ -68,6 +70,21 @@ public class JobDaoImpl implements JobDao {
 		
 		String hql = "from job j where j.jobname=?";
 		Query q = session.createQuery(hql).setParameter(0, jobname);
+		List<Job> joblist = q.list();
+		
+		session.getTransaction().commit();
+		session.close();
+		sf.close();
+		return joblist;
+	}
+	
+	public List<Job> getBySkillId(int skillid) {
+		SessionFactory sf = new Configuration().configure().buildSessionFactory();
+		Session session = sf.openSession();
+		session.beginTransaction();
+		
+		String hql = "from job j where j.skillid=?";
+		Query q = session.createQuery(hql).setParameter(0, skillid);
 		List<Job> joblist = q.list();
 		
 		session.getTransaction().commit();

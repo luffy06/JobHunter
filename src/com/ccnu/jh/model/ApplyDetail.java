@@ -14,6 +14,7 @@ import javax.persistence.*;
 @Table(name="applydetail")
 public class ApplyDetail {
 	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 	private String createtime;
 	private boolean pass;

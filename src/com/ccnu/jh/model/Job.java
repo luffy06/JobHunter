@@ -41,8 +41,8 @@ public class Job {
 	private boolean isclosed;
 	
 	@ManyToOne(cascade={CascadeType.ALL}, fetch=FetchType.EAGER)
-	@JoinColumn(name="companyid")
-	private Company company;
+	@JoinColumn(name="userid")
+	private User user;
 	
 	@OneToOne(mappedBy="job")
 	private JobStat jobstatistics;
@@ -138,12 +138,12 @@ public class Job {
 		this.isclosed = isclosed;
 	}
 
-	public Company getCompany() {
-		return company;
+	public User getUser() {
+		return user;
 	}
 
-	public void setCompany(Company company) {
-		this.company = company;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	public JobStat getJobstatistics() {

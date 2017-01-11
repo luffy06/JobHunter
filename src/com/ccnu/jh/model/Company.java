@@ -26,13 +26,11 @@ public class Company {
 	private int finanacestageid;
 	private String homepage;
 	private String logo;
+	private String description;
 	
 	@OneToOne
 	@PrimaryKeyJoinColumn
 	private User user;
-	
-	@OneToMany(mappedBy="company")
-	private Set<Job> jobs = new HashSet<Job>();
 
 	public int getId() {
 		return id;
@@ -106,6 +104,14 @@ public class Company {
 		this.logo = logo;
 	}
 
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
 	public User getUser() {
 		return user;
 	}
@@ -113,14 +119,5 @@ public class Company {
 	public void setUser(User user) {
 		this.user = user;
 	}
-
-	public Set<Job> getJobs() {
-		return jobs;
-	}
-
-	public void setJobs(Set<Job> jobs) {
-		this.jobs = jobs;
-	}
-	
 	
 }

@@ -10,6 +10,24 @@ import com.ccnu.jh.dao.ApplyDetailDao;
 import com.ccnu.jh.model.ApplyDetail;
 
 public class ApplyDetailDaoImpl implements ApplyDetailDao {
+	public int countByCompanyId(int companyid) {
+		SessionFactory sf = new Configuration().configure().buildSessionFactory();
+		Session session = sf.openSession();
+		session.beginTransaction();
+		
+		int res = 0;
+		String hql = "select count(*) from ApplyDetail ad where ad.jobid=(select j.id from Job j where j.userid="+companyid+")";
+		Long q = (Long)session.createQuery(hql).uniqueResult();
+		if (q != null) {
+			res = q.intValue();
+		}
+		
+		session.getTransaction().commit();
+		session.close();
+		sf.close();
+		return res;
+	}
+	
 	public void save(ApplyDetail t) {
 		SessionFactory sf = new Configuration().configure().buildSessionFactory();
 		Session session = sf.openSession();

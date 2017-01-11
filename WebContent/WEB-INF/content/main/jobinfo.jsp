@@ -78,15 +78,14 @@
 							<c:if test="${! empty company}">
 								<p class="lead"><span class="glyphicon glyphicon glyphicon-bullhorn">团队介绍</span></p>
 								<span class="label label-success">${company.teamintro}</span>
-								<%-- <p class="lead"><span class="glyphicon glyphicon glyphicon-bullhorn">公司简介</span></p>
-								<p>${company. }</p> --%>
+								<p class="lead"><span class="glyphicon glyphicon glyphicon-bullhorn">公司简介</span></p>
+								<p>${company.description}</p>
+								<span class="glyphicon glyphicon-tree-deciduous">${m[company.industryid]}|${m[job.cityid]}|${m[company.scaleid]}</span>
+								<br />
+								<span class="glyphicon glyphicon-globe">${company.homepage}</span>
 							</c:if>
-							<!-- 未存 -->
-							<span class="glyphicon glyphicon-tree-deciduous">互联网|武汉|1000</span>
 							<br />
-							<span class="glyphicon glyphicon-globe">${company.homepage}</span>
-							<br />
-							<span class="glyphicon glyphicon-map-marker">杭州阿里巴巴园区</span>
+							<span class="glyphicon glyphicon-map-marker">${job.workaddress}</span>
 						</div>
 					</div>
 				</div>

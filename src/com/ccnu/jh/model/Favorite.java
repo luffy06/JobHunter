@@ -14,13 +14,13 @@ import javax.persistence.*;
 @Table(name="favorite")
 public class Favorite {
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
+//	0 user 1 company 2 job
 	private int type;
 	private String createtime;
 	
 	@ManyToOne(cascade={CascadeType.ALL}, fetch=FetchType.EAGER)
-	@JoinColumn(name="user_id")
+	@JoinColumn(name="userid")
 	private User user;
 
 	public int getId() {

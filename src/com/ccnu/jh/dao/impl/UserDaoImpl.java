@@ -12,6 +12,24 @@ import com.ccnu.jh.model.User;
 
 public class UserDaoImpl implements UserDao {
 	
+	public int countByCompanyId(int companyid) {
+		SessionFactory sf = new Configuration().configure().buildSessionFactory();
+		Session session = sf.openSession();
+		session.beginTransaction();
+		
+		int res = 0;
+		String hql = "select count(*) from User u where u.companyid="+companyid;
+		Long q = (Long)session.createQuery(hql).uniqueResult();
+		if (q != null) {
+			res = q.intValue();
+		}
+		
+		session.getTransaction().commit();
+		session.close();
+		sf.close();
+		return res;
+	}
+	
 	@Override
 	public boolean check(User user) {
 		SessionFactory sf = new Configuration().configure().buildSessionFactory();

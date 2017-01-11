@@ -45,6 +45,22 @@
 			method="getJobList">
 			<result>/WEB-INF/content/main/joblist.jsp</result>
 		</action>
+		<action name="jobinfo" class="com.ccnu.jh.action.JobAction"
+			method="getJobInfo">
+			<result>/WEB-INF/content/main/jobinfo.jsp</result>
+		</action>
+		<action name="companylist" class="com.ccnu.jh.action.CompanyAction"
+			method="getCompanyList">
+			<result>/WEB-INF/content/main/companylist.jsp</result>
+		</action>
+		<action name="companyinfo" class="com.ccnu.jh.action.CompanyAction"
+			method="getCompanyInfo">
+			<result>/WEB-INF/content/main/companyinfo.jsp</result>
+		</action>
+		<action name="clickzan" class="com.ccnu.jh.action.JobStatAction"
+			method="addZan">
+			<result type="redirect">jobinfo</result>
+		</action>
 	</package>
 
 </struts>

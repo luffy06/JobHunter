@@ -97,7 +97,7 @@
 										</button>
 										<ul class="dropdown-menu" role="menu">
 											<c:forEach var="x" begin="${jobtypecount[y]}" end="${jobtypecount[y + 1]}" step="1">
-											    <li><a href="joblist?job">${skilllist[x]}</a></li>
+											    <li><a href="joblist?skillid=${skillid[x]}">${skilllist[x]}</a></li>
 										    </c:forEach>
 										</ul>
 									</div>
@@ -121,7 +121,7 @@
 								<div class="panel panel-primary">
 									<div class="panel-body">
 										<div class="col-md-10">
-											<p class="lead"><a href="jobinfo">${jl.jobname}</a></p>
+											<p class="lead"><a href="jobinfo?jobid=${jl.id}">${jl.jobname}</a></p>
 											<p>${m[jl.salaryid]}</p>
 											<p>${m[jl.cityid]}|${m[jl.experienceid]}|${m[jl.diplomaid]}</p>
 										</div>
@@ -129,7 +129,7 @@
 											<img src="public/img/userportrait/1.png" alt="头像" class="img-circle">
 											<br />
 											<p>${hr[st.index].username}</p>
-											<c:if test="${! empty hrc}">
+											<c:if test="${! empty hrc[st.index]}">
 												<p>${hrc[st.index].shortname}|HR</p>
 											</c:if>
 										</div>

@@ -38,6 +38,9 @@ public class User {
 	
 	@OneToMany(mappedBy="user")
 	private Set<Favorite> favorite = new HashSet<Favorite>();
+	
+	@OneToMany(mappedBy="job")
+	private Set<Job> job = new HashSet<Job>();
 
 	public int getId() {
 		return id;
@@ -133,6 +136,14 @@ public class User {
 
 	public void setFavorite(Set<Favorite> favorite) {
 		this.favorite = favorite;
+	}
+
+	public Set<Job> getJob() {
+		return job;
+	}
+
+	public void setJob(Set<Job> job) {
+		this.job = job;
 	}
 	
 }
