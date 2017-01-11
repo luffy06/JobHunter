@@ -15,6 +15,7 @@ import com.ccnu.jh.dao.impl.UserDaoImpl;
 import com.ccnu.jh.model.Company;
 import com.ccnu.jh.model.Dict;
 import com.ccnu.jh.model.Job;
+import com.ccnu.jh.model.JobStat;
 import com.ccnu.jh.model.User;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
@@ -111,7 +112,9 @@ public class JobAction extends ActionSupport {
 		User hr = job.getUser();
 		Company company = hr.getCompany();
 		
-		jsdi.browse(jobid);
+		JobStat js = jsdi.get(jobid);
+		js.setBrowsecount(js.getBrowsecount() + 1);
+		jsdi.update(js);
 		
 		List<Integer> keylist = new ArrayList<>();
 		

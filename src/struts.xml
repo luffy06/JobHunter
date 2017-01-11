@@ -61,6 +61,10 @@
 			method="addZan">
 			<result type="redirect">jobinfo</result>
 		</action>
+		<action name="postresume" class="com.ccnu.jh.action.ResumeAction"
+			method="postResume">
+			<result type="redirect">jobinfo</result>
+		</action>
 	</package>
 
 </struts>

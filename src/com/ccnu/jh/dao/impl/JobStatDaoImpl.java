@@ -10,18 +10,6 @@ import com.ccnu.jh.dao.JobStatDao;
 import com.ccnu.jh.model.JobStat;
 
 public class JobStatDaoImpl implements JobStatDao {
-	public void browse(int jobid) {
-		SessionFactory sf = new Configuration().configure().buildSessionFactory();
-		Session session = sf.openSession();
-		session.beginTransaction();
-		
-		JobStat js = (JobStat)session.get(JobStat.class, jobid);
-		js.setBrowsecount(js.getBrowsecount() + 1);
-		
-		session.getTransaction().commit();
-		session.close();
-		sf.close();
-	}
 	
 	public void save(JobStat t) {
 		SessionFactory sf = new Configuration().configure().buildSessionFactory();

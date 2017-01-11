@@ -64,7 +64,7 @@
 								<span class="label label-success">在线</span>
 							</div>
 							<div class="col-md-5 col-md-offset-2">
-								<a href="postresume"><button class="btn btn-warning btn-lg">投递简历</button></a>
+								<a href="postresume?jobid=${job.id}"><button class="btn btn-warning btn-lg">投递简历</button></a>
 							</div>
 						</div>
 					</div>
