@@ -7,6 +7,6 @@
 <title>Error</title>
 </head>
 <body>
-	<p>用户名或密码错误！请<a href="getlogin">重新登录！</a></p>
+	<p>用户名或密码错误！<a href="index">返回</a></p>
 </body>
 </html>

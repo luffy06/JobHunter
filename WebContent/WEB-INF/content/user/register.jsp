@@ -90,21 +90,23 @@
 							</div>
 						</div>
 						<div class="form-group">
-							<div class="col-md-4 col-md-offset-3">
-								<button class="btn btn-primary btn-block" type="submit" onclick="changeRegisterAction('hr')">HR注册</button>
-							</div>
-							<div class="col-md-4 col-md-offset-1">
-								<button class="btn btn-primary btn-block" type="submit" onclick="changeRegisterAction('user')">求职者注册</button>
+							<div class="col-md-9 col-md-offset-3">
+								<button class="btn btn-primary btn-block" type="submit">注册</button>
 							</div>
 						</div>
 					</form>
 				</div>
 			</div>
 		</div>
+		
+		<hr>
+		<div class="row">
+			<s:action name="sidebar_footerframe" executeResult="true"></s:action>
+		</div>
 	</div>
 	
 	<script src="public/bower_components/jquery/jquery.js"></script>
-	<script src="public/bower_components/dist/js/bootstrap.min.js"></script>
+	<script src="public/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="public/js/main.js"></script>
 </body>
 </html>

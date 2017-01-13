@@ -19,7 +19,7 @@ import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="resume")
+@Table(name="t_resume")
 public class Resume {
 	@Id
 	private int id;
@@ -28,7 +28,7 @@ public class Resume {
 	private String advantage;
 	private String homepage;
 	private int statusid;
-	private boolean ishide;
+	private int ishide;
 	
 	@OneToOne
 	@PrimaryKeyJoinColumn
@@ -97,11 +97,11 @@ public class Resume {
 		this.statusid = statusid;
 	}
 
-	public boolean isIshide() {
+	public int getIshide() {
 		return ishide;
 	}
 
-	public void setIshide(boolean ishide) {
+	public void setIshide(int ishide) {
 		this.ishide = ishide;
 	}
 

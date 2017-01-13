@@ -19,7 +19,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="workexperience")
+@Table(name="t_workexperience")
 public class WorkEp {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)

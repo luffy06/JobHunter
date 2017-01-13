@@ -10,20 +10,18 @@ package com.ccnu.jh.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="jobstatistics")
+@Table(name="t_jobstatistics")
 public class JobStat {
 	@Id
 	private int id;
 	private int browsecount;
 	private int sharecount;
 			
-	@OneToOne
-	@JoinColumn(name="jobid")
+	@OneToOne(mappedBy="jobstat")
 	private Job job;
 
 	public int getId() {

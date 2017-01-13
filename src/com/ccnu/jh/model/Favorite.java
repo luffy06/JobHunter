@@ -11,7 +11,7 @@ package com.ccnu.jh.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name="favorite")
+@Table(name="t_favorite")
 public class Favorite {
 	@Id
 	private int id;
@@ -20,7 +20,7 @@ public class Favorite {
 	private String createtime;
 	
 	@ManyToOne(cascade={CascadeType.ALL}, fetch=FetchType.EAGER)
-	@JoinColumn(name="userid")
+	@JoinColumn(name="user_id")
 	private User user;
 
 	public int getId() {

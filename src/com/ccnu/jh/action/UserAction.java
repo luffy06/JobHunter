@@ -10,7 +10,9 @@ import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class UserAction extends ActionSupport {
-	User user;
+	private User user;
+	private String opwd;
+	private String npwd;
 	
 	public User getUser() {
 		return user;
@@ -20,6 +22,22 @@ public class UserAction extends ActionSupport {
 		this.user = user;
 	}
 	
+	public String getOpwd() {
+		return opwd;
+	}
+
+	public void setOpwd(String opwd) {
+		this.opwd = opwd;
+	}
+
+	public String getNpwd() {
+		return npwd;
+	}
+
+	public void setNpwd(String npwd) {
+		this.npwd = npwd;
+	}
+
 	/*
 	 * 检查邮箱是否存在
 	 */
@@ -40,19 +58,10 @@ public class UserAction extends ActionSupport {
 	 */
 	public String register() throws Exception {
 		UserDaoImpl udi = new UserDaoImpl();
-//		CompanyDaoImpl cdi = new CompanyDaoImpl();
-		
 		
 		user.setId(user.getEmail().hashCode());
 		udi.save(user);
-		
-//		String role = ServletActionContext.getRequest().getParameter("role");
-//		if (role.equals("hr")) {
-//			Company c = new Company();
-//			c.setId(user.getId());
-//			cdi.save(c);
-//		}
-		
+				
 		return SUCCESS;
 	}
 
@@ -64,12 +73,13 @@ public class UserAction extends ActionSupport {
 		UserDaoImpl udi = new UserDaoImpl();
 		if (udi.check(user)) {
 			user = udi.getByEmail(user.getEmail());
-			System.out.println("username: " + user.getUsername());
+			user.setPassword("");
 			
-			act.getSession().put("username", user.getUsername());
-			act.getSession().put("userid", user.getId());
+			act.getSession().put("user", user);
 			return SUCCESS;
 		}
+		
+		act.put("url", "index");
 		return ERROR;
 	}
 	
@@ -79,5 +89,37 @@ public class UserAction extends ActionSupport {
 	public String logout() throws Exception {
 		ActionContext.getContext().getSession().clear();
 		return SUCCESS;
+	}
+	
+	public String updateUserInfo() throws Exception {
+		ActionContext act = ActionContext.getContext();
+		User suser = (User)act.getSession().get("user");
+		
+		UserDaoImpl udi = new UserDaoImpl();
+		
+		user.setId(suser.getId());
+		user.setPassword(suser.getPassword());
+		user.setEmail(suser.getEmail());
+		udi.update(user);
+		
+		act.getSession().put("user", user);
+		return SUCCESS;
+	}
+	
+	public String updatePassword() throws Exception {
+		ActionContext act = ActionContext.getContext();
+		User user = (User)act.getSession().get("user");
+		UserDaoImpl udi = new UserDaoImpl();
+		
+		user.setPassword(opwd);
+		
+		if (udi.check(user)) {
+			user.setPassword(npwd);
+			udi.update(user);
+			return SUCCESS;
+		}
+		
+		act.put("url", "getupdatepwd");
+		return ERROR;
 	}
 }

@@ -2,6 +2,8 @@ package com.ccnu.jh.dao.impl;
 
 import java.util.List;
 
+import javax.jws.soap.SOAPBinding.Use;
+
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -37,11 +39,9 @@ public class UserDaoImpl implements UserDao {
 		session.beginTransaction();
 		
 		boolean success = false;
-		String hql = "from User u where u.email=:email and u.password=:password";
-		Query q = session.createQuery(hql)
-						.setString("email", user.getEmail())
-						.setString("password", user.getPassword());
-		if (q != null)
+		String hql = "from User u where u.email=? and u.password=?";
+		Query q = session.createQuery(hql).setParameter(0, user.getEmail()).setParameter(1, user.getPassword());
+		if (q.list().size() != 0)
 			success = true;
 				
 		session.getTransaction().commit();

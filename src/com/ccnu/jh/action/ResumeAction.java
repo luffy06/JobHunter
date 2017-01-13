@@ -24,7 +24,7 @@ public class ResumeAction extends ActionSupport {
 		ResumeDaoImpl rdi = new ResumeDaoImpl();
 		String nowtime = (String) new SimpleDateFormat("yyyy-MM-dd HH:mm").format(Calendar.getInstance().getTime());
 		
-		ad.setPass(false);
+		ad.setPass(0);
 		ad.setJob(jdi.get(jobid));
 		ad.setResume(rdi.get(userid));
 		ad.setCreatetime(nowtime);

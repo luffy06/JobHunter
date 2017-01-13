@@ -15,7 +15,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="dictionary")
+@Table(name="t_dictionary")
 public class Dict {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)

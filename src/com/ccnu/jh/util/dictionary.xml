@@ -8,6 +8,8 @@
 6 公司规模 
 7-18 专业技能
 19 学校
+20 融资规模
+21 公司行业
  -->
 <dictionary>
 	<!--城市-->
@@ -1159,5 +1161,29 @@
 		<name>东北林业大学</name>
 		<desc>学校</desc>
 	</item>
-
+	<item>
+		<type>20</type>
+		<name>天使轮</name>
+		<desc>融资规模</desc>
+	</item>
+	<item>
+		<type>20</type>
+		<name>A轮</name>
+		<desc>融资规模</desc>
+	</item>
+	<item>
+		<type>20</type>
+		<name>B轮</name>
+		<desc>融资规模</desc>
+	</item>
+	<item>
+		<type>20</type>
+		<name>上市</name>
+		<desc>融资规模</desc>
+	</item>
+	<item>
+		<type>21</type>
+		<name>IT</name>
+		<desc>公司行业</desc>
+	</item>
 </dictionary>

@@ -8,13 +8,10 @@
  */
 package com.ccnu.jh.model;
 
-import java.util.HashSet;
-import java.util.Set;
-
 import javax.persistence.*;
 
 @Entity
-@Table(name="company")
+@Table(name="t_company")
 public class Company {
 	@Id
 	private int id;

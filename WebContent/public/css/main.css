@@ -6,7 +6,7 @@
 }
 /*主页内容*/
 .index-content {
-	background-image: url(../../../img/2135-18561.jpg);	
+	background-image: url(../img/2135-18561.jpg);	
 	width: 100%;
 	height: 100%;
 	margin-top:-30px;
@@ -16,7 +16,7 @@
 /*登录页*/
 /*登录界面内容*/
 .login-content {
-	background-image: url(../../../img/22.jpg);	
+	background-image: url(../img/22.jpg);	
 	width: 100%;
 	height: 100%;
 	margin-top:-30px;
@@ -61,7 +61,7 @@
 /*企业展示页*/
 /*企业搜索栏*/
 .company-all {
-	background-color: #f2f2f2;
+	/* background-color: #f2f2f2; */
 	padding-top: 50px;
 	height: 100%;
 }

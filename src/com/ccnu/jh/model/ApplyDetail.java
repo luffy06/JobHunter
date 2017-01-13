@@ -11,20 +11,20 @@ package com.ccnu.jh.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name="applydetail")
+@Table(name="t_applydetail")
 public class ApplyDetail {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 	private String createtime;
-	private boolean pass;
+	private int pass;
 	
 	@ManyToOne(cascade={CascadeType.ALL}, fetch=FetchType.EAGER)
-	@JoinColumn()
+	@JoinColumn(name="job_id")
 	private Job job;
 	
 	@ManyToOne(cascade={CascadeType.ALL}, fetch=FetchType.EAGER)
-	@JoinColumn()
+	@JoinColumn(name="resume_id")
 	private Resume resume;
 
 	public int getId() {
@@ -43,11 +43,11 @@ public class ApplyDetail {
 		this.createtime = createtime;
 	}
 
-	public boolean isPass() {
+	public int getPass() {
 		return pass;
 	}
 
-	public void setPass(boolean pass) {
+	public void setPass(int pass) {
 		this.pass = pass;
 	}
 

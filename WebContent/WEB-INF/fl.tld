@@ -14,16 +14,16 @@
   <function>
   	<description>获取最大值</description>
   	<name>max</name>
-  	<function-class>com.cl.util.JstlFunc</function-class>
-  	<function-signature>java.lang.int max(java.lang.int a, java.lang.int b)</function-signature>
+  	<function-class>com.ccnu.jh.util.JstlFunc</function-class>
+  	<function-signature>int max(int, int)</function-signature>
   	<example>${fl:max(a, b)}</example>
   </function>
   
   <function>
   	<description>获取最小值</description>
   	<name>min</name>
-  	<function-class>com.cl.util.JstlFunc</function-class>
-  	<function-signature>java.lang.int min(java.lang.int a, java.lang.int b)</function-signature>
+  	<function-class>com.ccnu.jh.util.JstlFunc</function-class>
+  	<function-signature>int min(int, int)</function-signature>
   	<example>${fl:min(a, b)}</example>
   </function>
   

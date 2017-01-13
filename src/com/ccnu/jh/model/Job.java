@@ -24,7 +24,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="job")
+@Table(name="t_job")
 public class Job {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -38,14 +38,15 @@ public class Job {
 	private int cityid;
 	private String workaddress;
 	private String description;
-	private boolean isclosed;
+	private int isclosed;
 	
-	@ManyToOne(cascade={CascadeType.ALL}, fetch=FetchType.EAGER)
-	@JoinColumn(name="userid")
+	@JoinColumn(name="user_id")
+	@ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 	private User user;
 	
-	@OneToOne(mappedBy="job")
-	private JobStat jobstatistics;
+	@OneToOne
+	@JoinColumn(name="jobstat_id")
+	private JobStat jobstat;
 	
 	@OneToMany(mappedBy="job")
 	private Set<ApplyDetail> applydetail = new HashSet<ApplyDetail>();
@@ -130,11 +131,11 @@ public class Job {
 		this.description = description;
 	}
 
-	public boolean isIsclosed() {
+	public int getIsclosed() {
 		return isclosed;
 	}
 
-	public void setIsclosed(boolean isclosed) {
+	public void setIsclosed(int isclosed) {
 		this.isclosed = isclosed;
 	}
 
@@ -146,12 +147,12 @@ public class Job {
 		this.user = user;
 	}
 
-	public JobStat getJobstatistics() {
-		return jobstatistics;
+	public JobStat getJobstat() {
+		return jobstat;
 	}
 
-	public void setJobstatistics(JobStat jobstatistics) {
-		this.jobstatistics = jobstatistics;
+	public void setJobstat(JobStat jobstat) {
+		this.jobstat = jobstat;
 	}
 
 	public Set<ApplyDetail> getApplydetail() {

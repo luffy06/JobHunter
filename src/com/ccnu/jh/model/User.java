@@ -21,7 +21,7 @@ public class User {
 	private int id;
 	private String username;
 	private String password;
-	private boolean sex;
+	private int sex;
 	private String wechat;
 	private String email;
 	private String telnumber;
@@ -36,10 +36,10 @@ public class User {
 	@PrimaryKeyJoinColumn
 	private Company company;
 	
-	@OneToMany(mappedBy="user")
+	@OneToMany(mappedBy="user", fetch=FetchType.LAZY)
 	private Set<Favorite> favorite = new HashSet<Favorite>();
 	
-	@OneToMany(mappedBy="job")
+	@OneToMany(mappedBy="user", fetch=FetchType.LAZY)
 	private Set<Job> job = new HashSet<Job>();
 
 	public int getId() {
@@ -66,11 +66,11 @@ public class User {
 		this.password = password;
 	}
 
-	public boolean isSex() {
+	public int getSex() {
 		return sex;
 	}
 
-	public void setSex(boolean sex) {
+	public void setSex(int sex) {
 		this.sex = sex;
 	}
 
@@ -145,5 +145,4 @@ public class User {
 	public void setJob(Set<Job> job) {
 		this.job = job;
 	}
-	
 }

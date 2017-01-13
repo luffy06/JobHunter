@@ -54,9 +54,14 @@
 				</div>
 			</div>
 		</div>
+	
+		<hr>
+		<div class="row">
+			<s:action name="sidebar_footerframe" executeResult="true"></s:action>
+		</div>
 	</div>
 	
 	<script src="public/bower_components/jquery/jquery.js"></script>
-	<script src="public/bower_components/dist/js/bootstrap.min.js"></script>
+	<script src="public/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 </body>
 </html>

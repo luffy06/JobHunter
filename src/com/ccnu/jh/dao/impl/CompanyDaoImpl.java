@@ -10,6 +10,7 @@ import com.ccnu.jh.dao.CompanyDao;
 import com.ccnu.jh.model.Company;
 
 public class CompanyDaoImpl implements CompanyDao {
+	
 	public void save(Company t) {
 		SessionFactory sf = new Configuration().configure().buildSessionFactory();
 		Session session = sf.openSession();
@@ -39,7 +40,7 @@ public class CompanyDaoImpl implements CompanyDao {
 		Session session = sf.openSession();
 		session.beginTransaction();
 		
-		String hql = "delete company c where c.id=?";
+		String hql = "delete Company c where c.id=?";
 		session.createQuery(hql).setParameter(0, id);
 		
 		session.getTransaction().commit();
@@ -65,7 +66,7 @@ public class CompanyDaoImpl implements CompanyDao {
 		Session session = sf.openSession();
 		session.beginTransaction();
 		
-		String hql = "from company c";
+		String hql = "from Company c";
 		List<Company> clist = session.createQuery(hql).list();
 		
 		session.getTransaction().commit();

@@ -66,7 +66,11 @@ public class DictDaoImpl implements DictDao {
 		session.beginTransaction();
 		
 		String hql = "select distinct d.description from Dict d where d.dicttypeid=?";
-		Dict d = (Dict)session.createQuery(hql).setParameter(0, typeid).list();
+		List<Dict> res = session.createQuery(hql).setParameter(0, typeid).list();
+		Dict d = null;
+		if (res.size() > 0) {
+			d = res.get(0);
+		}
 		
 		session.getTransaction().commit();
 		session.close();
@@ -79,7 +83,7 @@ public class DictDaoImpl implements DictDao {
 		Session session = sf.openSession();
 		session.beginTransaction();
 		
-		String hql = "from dictionary d";
+		String hql = "from Dict d";
 		List<Dict> dlist = session.createQuery(hql).list();
 		
 		session.getTransaction().commit();
@@ -93,7 +97,7 @@ public class DictDaoImpl implements DictDao {
 		Session session = sf.openSession();
 		session.beginTransaction();
 		
-		String hql = "from dictionary d where d.dicttypeid=?";
+		String hql = "from Dict d where d.dicttypeid=?";
 		List<Dict> dlist = session.createQuery(hql).setParameter(0, typeid).list();
 		
 		session.getTransaction().commit();

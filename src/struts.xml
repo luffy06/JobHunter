@@ -22,9 +22,6 @@
 	</package>
 	
 	<package name="user" extends="struts-default">
-		<action name="get*">
-			<result>/WEB-INF/content/user/{1}.jsp</result>
-		</action>
 		<action name="register" class="com.ccnu.jh.action.UserAction"
 			method="register">
 			<result type="redirect">getlogin</result>
@@ -37,6 +34,57 @@
 		<action name="logout" class="com.ccnu.jh.action.UserAction"
 			method="logout">
 			<result type="redirect">index</result>
+		</action>
+		<!-- 个人资料 -->
+		<!-- getuserinfo，获取个人资料，因user基本资料已存入session，无需定义 -->
+		<action name="updateuserinfo" class="com.ccnu.jh.action.UserAction"
+			method="updateUserInfo">
+			<result type="redirect">getuserinfo</result>
+		</action>
+		<action name="updatepwd" class="com.ccnu.jh.action.UserAction"
+			method="updatePassword">
+			<result name="error" type="redirect">error</result>
+			<result type="redirect">logout</result>
+		</action>
+		<!-- 简历 -->
+		<action name="getuserresume" class="com.ccnu.jh.action.ResumeAction"
+			method="getUserResume">
+			<result>/WEB-INF/content/center/userresume.jsp</result>
+		</action>
+		<action name="getuserpost" class="com.ccnu.jh.action.ApplyDetailAction"
+			method="getUserPost"></action>
+		<!-- 收藏夹 -->
+		<action name="getcomanyfavorite" class="com.ccnu.jh.action.FavoriteAction"
+			method="getCompanyFavorite">
+			<result>/WEB-INF/content/center/companyfavorite.jsp</result>
+		</action>
+		<action name="getjobfavorite" class="com.ccnu.jh.action.FavoriteAction"
+			method="getJobFavorite">
+			<result>/WEB-INF/content/center/jobfavorite.jsp</result>
+		</action>
+		<action name="getoxerfavorite" class="com.ccnu.jh.action.FavoriteAction"
+			method="getOxerFavorite">
+			<result>/WEB-INF/content/center/oxerfavorite.jsp</result>
+		</action>
+		<!-- 职位 -->
+		<action name="getissuedjob" class="com.ccnu.jh.action.JobAction"
+			method="getIssuedJob">
+			<result>/WEB-INF/content/center/issuedjob.jsp</result>
+		</action>
+		<action name="getpostjob" class="com.ccnu.jh.action.JobAction"
+			method="getPostJob">
+			<result>/WEB-INF/content/center/postjob.jsp</result>
+		</action>
+		<!-- 候选人 -->
+		<action name="getcandidate" class="com.ccnu.jh.action.ApplyDetailAction"
+			method="getCandidate">
+			<result>/WEB-INF/content/center/candidate.jsp</result>
+		</action>
+		<action name="getuser*">
+			<result>/WEB-INF/content/center/user{1}.jsp</result>
+		</action>
+		<action name="get*">
+			<result>/WEB-INF/content/user/{1}.jsp</result>
 		</action>
 	</package>
 	
@@ -64,6 +112,16 @@
 		<action name="postresume" class="com.ccnu.jh.action.ResumeAction"
 			method="postResume">
 			<result type="redirect">jobinfo</result>
+		</action>
+		
+		<!-- 我的公司 -->
+		<action name="getusercompany" class="com.ccnu.jh.action.CompanyAction"
+			method="getUserCompany">
+			<result>/WEB-INF/content/center/usercompany.jsp</result>
+		</action>
+		<action name="updateusercompany" class="com.ccnu.jh.action.CompanyAction"
+			method="updateUserCompany">
+			<result type="redirect">getusercompany</result>
 		</action>
 	</package>
 

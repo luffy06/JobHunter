@@ -53,14 +53,15 @@ public class JobAction extends ActionSupport {
 		// 获取岗位二级分类
 		jobtypecount.add(0);
 		for (int i = 7; i <= 18; i++) {
-			Dict d = ddi.getByTypeId(i);
-			jobtypelist.add(d.getDescription());
 			List<Dict> skill = ddi.getAllByTypeId(i);
-			int last = jobtypecount.get(jobtypecount.size() - 1);
-			jobtypecount.add(last + skill.size());
-			for (int j = 0; j < skill.size(); j++) {
-				skilllist.add(skill.get(j).getName());
-				skillid.add(skill.get(i).getDictitemid());
+			if (skill.size() != 0) {
+				jobtypelist.add(skill.get(0).getDescription());
+				int last = jobtypecount.get(jobtypecount.size() - 1);
+				jobtypecount.add(last + skill.size());
+				for (int j = 0; j < skill.size(); j++) {
+					skilllist.add(skill.get(j).getName());
+					skillid.add(skill.get(j).getDictitemid());
+				}
 			}
 		}
 		
@@ -87,6 +88,10 @@ public class JobAction extends ActionSupport {
 			hrname.add(job.getUser().getUsername());
 			hrcname.add(job.getUser().getCompany().getShortname());
 		}
+		
+//		for (int i = 0; i < jobtypelist.size(); i++) {
+//			System.out.println("type: " + jobtypelist.get(i));
+//		}
 		
 		act.put("jobtypelist", jobtypelist);
 		act.put("jobtypecount", jobtypecount);
@@ -141,6 +146,11 @@ public class JobAction extends ActionSupport {
 		act.put("company", company);
 		act.put("hr", hr);
 		act.getApplication().put("m", map);
+		return SUCCESS;
+	}
+	
+	public String getPostJob() throws Exception {
+		
 		return SUCCESS;
 	}
 }

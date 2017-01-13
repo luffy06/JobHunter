@@ -33,7 +33,7 @@
 		        <li><a href="oxer">人才</a></li>
 		      </ul>
 		      <c:choose>
-				<c:when test="${empty userid}">
+				<c:when test="${empty user}">
 			     	<ul class="nav navbar-nav navbar-right">
 			        	<li><a href="getlogin">登录</a></li>
 			        	<li><a href="getregister">注册</a></li>
@@ -41,7 +41,7 @@
 			    </c:when>
 			    <c:otherwise>
 			    	<ul class="nav navbar-nav navbar-right">
-			        	<li><a href="usercenter">${username}</a></li>
+			        	<li><a href="getusercenter">${user.username}</a></li>
 			        	<li><a href="logout">登出</a></li>
 			    	</ul>
 			    </c:otherwise>
@@ -51,6 +51,6 @@
 	</nav>
 	
 	<script src="public/bower_components/jquery/jquery.js"></script>
-	<script src="public/bower_components/dist/js/bootstrap.min.js"></script>
+	<script src="public/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 </body>
 </html>
