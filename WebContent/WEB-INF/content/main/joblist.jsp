@@ -123,11 +123,11 @@
 												<p>${m[jl.cityid]}|${m[jl.experienceid]}|${m[jl.diplomaid]}</p>
 											</div>
 											<div class="col-md-2 clo-md-offset-10">
-												<img src="public/img/userportrait/1.png" alt="头像" class="img-circle">
+												<img src="public/img/userportrait/${hrportrait[st.index]}.png" alt="头像" class="img-circle">
 												<br />
-												<p>${hr[st.index].username}</p>
+												<p>${hr[st.index]}</p>
 												<c:if test="${! empty hrc[st.index]}">
-													<p>${hrc[st.index].shortname}|HR</p>
+													<p>${hrc[st.index]}|HR</p>
 												</c:if>
 											</div>
 										</div>

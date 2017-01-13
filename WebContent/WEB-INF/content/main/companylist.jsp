@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>公司列表</title>
 <link rel="stylesheet" href="public/css/bootstrap(custom).css">
 <link rel="stylesheet" href="public/css/main.css">
 </head>
@@ -39,34 +39,31 @@
 						<c:when test="${! empty companylist}">
 							<c:forEach items="${companylist}" var="cl" varStatus="st">
 								<div class="row">
-									<div class="col-md-8 col-md-offset-2">
-										<div class="panel panel-primary">
-											<div class="panel-body">
-												<div class="col-md-3">
-													<p class="lead">${cl.shortname}</p>
-													<a href="favorite?type='company'&companyid=${cl.id}"><button class="btn btn-info btn-lg">收藏</button></a>
-												</div>
-												<div class="col-md-5 clo-md-offset-3">
-													<p class="lead">${cl.fullname}</p>
-													<p>行业：${m[cl.industryid]}</p>
-													<p>性质：${m[cl.finanacestageid]}</p>
-													<p>规模：${m[cl.scaleid]}</p>
-												</div>
-												<div class="col-md-4">
-													<p>招聘职位：</p>
-													<ul>
-														<c:forEach var="x" begin="${count[st.index]}" end="${count[st.index + 1]}" step="1">
-															<li><a href="jobinfo?jobid=${joblist[x].id}">${joblist[x].jobname}</a></li>
-														</c:forEach>
-													</ul>
-													<ul>
-														<li><a href="companyinfo?companyid=${cl.id}">更多</a></li>	
-													</ul>
-													
-												</div>
+									<div class="panel panel-primary">
+										<div class="panel-body">
+											<div class="col-md-3">
+												<p class="lead">${cl.shortname}</p>
+												<a href="favorite?type='company'&companyid=${cl.id}"><button class="btn btn-info btn-lg">收藏</button></a>
+											</div>
+											<div class="col-md-5 clo-md-offset-3">
+												<p class="lead">${cl.fullname}</p>
+												<p>行业：${m[cl.industryid]}</p>
+												<p>性质：${m[cl.finanacestageid]}</p>
+												<p>规模：${m[cl.scaleid]}</p>
+											</div>
+											<div class="col-md-4">
+												<p>招聘职位：</p>
+												<ul>
+													<c:forEach var="x" begin="${count[st.index]}" end="${count[st.index + 1] - 1}" step="1">
+														<li><a href="jobinfo?jobid=${joblist[x].id}">${joblist[x].jobname}</a></li>
+													</c:forEach>
+												</ul>
+												<ul>
+													<li><a href="companyinfo?companyid=${cl.id}">更多</a></li>	
+												</ul>
+												
 											</div>
 										</div>
-										
 									</div>
 								</div>
 							</c:forEach>

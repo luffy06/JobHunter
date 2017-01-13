@@ -19,11 +19,11 @@ public class ApplyDetail {
 	private String createtime;
 	private int pass;
 	
-	@ManyToOne(cascade={CascadeType.ALL}, fetch=FetchType.EAGER)
+	@ManyToOne
 	@JoinColumn(name="job_id")
 	private Job job;
 	
-	@ManyToOne(cascade={CascadeType.ALL}, fetch=FetchType.EAGER)
+	@ManyToOne
 	@JoinColumn(name="resume_id")
 	private Resume resume;
 

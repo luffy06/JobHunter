@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>岗位详情页</title>
 <link rel="stylesheet" href="public/css/bootstrap(custom).css">
 <link rel="stylesheet" href="public/css/main.css">
 </head>
@@ -76,13 +76,11 @@
 							<p>描述详情--工作地点在${job.workaddress}</p>
 							<p><span class="label label-success">职位类型:${m[job.skillid]}</span></p>
 							<c:if test="${! empty company}">
-								<p class="lead"><span class="glyphicon glyphicon glyphicon-bullhorn">团队介绍</span></p>
-								<span class="label label-success">${company.teamintro}</span>
 								<p class="lead"><span class="glyphicon glyphicon glyphicon-bullhorn">公司简介</span></p>
 								<p>${company.description}</p>
 								<span class="glyphicon glyphicon-tree-deciduous">${m[company.industryid]}|${m[job.cityid]}|${m[company.scaleid]}</span>
 								<br />
-								<span class="glyphicon glyphicon-globe">${company.homepage}</span>
+								<span class="glyphicon glyphicon-globe"><a href="${company.homepage}">公司主页</a></span>
 							</c:if>
 							<br />
 							<span class="glyphicon glyphicon-map-marker">${job.workaddress}</span>

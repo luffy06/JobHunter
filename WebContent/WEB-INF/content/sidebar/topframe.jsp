@@ -30,7 +30,7 @@
 		        <li><a href="index">首页</a></li>
 		        <li><a href="joblist">岗位</a></li>
 		        <li><a href="companylist">企业</a></li>
-		        <li><a href="oxer">人才</a></li>
+		        <li><a href="oxerlist">人才</a></li>
 		      </ul>
 		      <c:choose>
 				<c:when test="${empty user}">

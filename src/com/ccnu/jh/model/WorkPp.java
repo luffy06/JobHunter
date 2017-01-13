@@ -8,9 +8,7 @@
  */
 package com.ccnu.jh.model;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -22,14 +20,14 @@ import javax.persistence.Table;
 @Table(name="t_workpurpose")
 public class WorkPp {
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
-	private int jobtypeid;
+	private int skillid;
 	private int industryid;
 	private int cityid;
 	private int salaryid;
 	
-	@ManyToOne(cascade={CascadeType.ALL}, fetch=FetchType.EAGER)
+	@ManyToOne
 	@JoinColumn(name="resume_id")
 	private Resume resume;
 
@@ -41,12 +39,12 @@ public class WorkPp {
 		this.id = id;
 	}
 
-	public int getJobtypeid() {
-		return jobtypeid;
+	public int getSkillid() {
+		return skillid;
 	}
 
-	public void setJobtypeid(int jobtypeid) {
-		this.jobtypeid = jobtypeid;
+	public void setSkillid(int skillid) {
+		this.skillid = skillid;
 	}
 
 	public int getIndustryid() {

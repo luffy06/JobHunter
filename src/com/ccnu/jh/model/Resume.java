@@ -12,6 +12,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -34,19 +35,19 @@ public class Resume {
 	@PrimaryKeyJoinColumn
 	private User user;
 	
-	@OneToMany(mappedBy="resume")
+	@OneToMany(mappedBy="resume", fetch=FetchType.EAGER)
 	private Set<EduExp> eduexp = new HashSet<EduExp>();
 	
-	@OneToMany(mappedBy="resume")
+	@OneToMany(mappedBy="resume", fetch=FetchType.EAGER)
 	private Set<ProExp> proexp = new HashSet<ProExp>();
 	
-	@OneToMany(mappedBy="resume")
+	@OneToMany(mappedBy="resume", fetch=FetchType.EAGER)
 	private Set<WorkEp> workep = new HashSet<WorkEp>();
 	
-	@OneToMany(mappedBy="resume")
+	@OneToMany(mappedBy="resume", fetch=FetchType.EAGER)
 	private Set<WorkPp> workpp = new HashSet<WorkPp>();
 		
-	@OneToMany(mappedBy="resume")
+	@OneToMany(mappedBy="resume", fetch=FetchType.EAGER)
 	private Set<ApplyDetail> applydetail = new HashSet<ApplyDetail>();
 
 	public int getId() {

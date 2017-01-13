@@ -48,7 +48,7 @@ public class Job {
 	@JoinColumn(name="jobstat_id")
 	private JobStat jobstat;
 	
-	@OneToMany(mappedBy="job")
+	@OneToMany(mappedBy="job", fetch=FetchType.EAGER)
 	private Set<ApplyDetail> applydetail = new HashSet<ApplyDetail>();
 
 	public int getId() {

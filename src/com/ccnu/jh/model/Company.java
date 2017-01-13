@@ -17,7 +17,6 @@ public class Company {
 	private int id;
 	private String fullname;
 	private String shortname;
-	private String teamintro;
 	private int industryid;
 	private int scaleid;
 	private int finanacestageid;
@@ -52,15 +51,7 @@ public class Company {
 	public void setShortname(String shortname) {
 		this.shortname = shortname;
 	}
-
-	public String getTeamintro() {
-		return teamintro;
-	}
-
-	public void setTeamintro(String teamintro) {
-		this.teamintro = teamintro;
-	}
-
+	
 	public int getIndustryid() {
 		return industryid;
 	}

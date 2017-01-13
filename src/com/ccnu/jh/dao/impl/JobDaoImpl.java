@@ -4,8 +4,6 @@ import java.util.List;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
 
 import com.ccnu.jh.dao.JobDao;
 import com.ccnu.jh.model.Job;
@@ -13,59 +11,41 @@ import com.ccnu.jh.model.Job;
 public class JobDaoImpl implements JobDao {
 	
 	
-	public void save(Job job) {
-		SessionFactory sf = new Configuration().configure().buildSessionFactory();
-		Session session = sf.openSession();
+	public void save(Session session, Job job) {
 		session.beginTransaction();
 		
 		session.save(job);
 		
 		session.getTransaction().commit();
-		session.close();
-		sf.close();
 	}
 	
-	public void update(Job job) {
-		SessionFactory sf = new Configuration().configure().buildSessionFactory();
-		Session session = sf.openSession();
+	public void update(Session session, Job job) {
 		session.beginTransaction();
 		
 		session.update(job);
 		
 		session.getTransaction().commit();
-		session.close();
-		sf.close();
 	}
 	
-	public void delete(int id) {
-		SessionFactory sf = new Configuration().configure().buildSessionFactory();
-		Session session = sf.openSession();
+	public void delete(Session session, int id) {
 		session.beginTransaction();
 		
 		String hql = "delete from Job j where j.id=?";
 		session.createQuery(hql).setParameter(0, id);
 		
 		session.getTransaction().commit();
-		session.close();
-		sf.close();
 	}
 	
-	public Job get(int id) {
-		SessionFactory sf = new Configuration().configure().buildSessionFactory();
-		Session session = sf.openSession();
+	public Job get(Session session, int id) {
 		session.beginTransaction();
 		
 		Job job = session.get(Job.class, id);
 		
 		session.getTransaction().commit();
-		session.close();
-		sf.close();
 		return job;
 	}
 	
-	public List<Job> getByJobName(String jobname) {
-		SessionFactory sf = new Configuration().configure().buildSessionFactory();
-		Session session = sf.openSession();
+	public List<Job> getByJobName(Session session, String jobname) {
 		session.beginTransaction();
 		
 		String hql = "from Job j where j.jobname=?";
@@ -73,14 +53,10 @@ public class JobDaoImpl implements JobDao {
 		List<Job> joblist = q.list();
 		
 		session.getTransaction().commit();
-		session.close();
-		sf.close();
 		return joblist;
 	}
 	
-	public List<Job> getBySkillId(int skillid) {
-		SessionFactory sf = new Configuration().configure().buildSessionFactory();
-		Session session = sf.openSession();
+	public List<Job> getBySkillId(Session session, int skillid) {
 		session.beginTransaction();
 		
 		String hql = "from Job j where j.skillid=?";
@@ -88,14 +64,10 @@ public class JobDaoImpl implements JobDao {
 		List<Job> joblist = q.list();
 		
 		session.getTransaction().commit();
-		session.close();
-		sf.close();
 		return joblist;
 	}
 	
-	public List<Job> getAll() {
-		SessionFactory sf = new Configuration().configure().buildSessionFactory();
-		Session session = sf.openSession();
+	public List<Job> getAll(Session session) {
 		session.beginTransaction();
 		
 		String hql = "from Job j";
@@ -103,8 +75,6 @@ public class JobDaoImpl implements JobDao {
 		List<Job> joblist = q.list();
 		
 		session.getTransaction().commit();
-		session.close();
-		sf.close();
 		return joblist;
 	}
 }

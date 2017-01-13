@@ -8,9 +8,8 @@
  */
 package com.ccnu.jh.model;
 
-import javax.persistence.CascadeType;
+
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -22,14 +21,22 @@ import javax.persistence.Table;
 @Table(name="t_workexperience")
 public class WorkEp {
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 	private int jobtypeid;
 	private int industryid;
+	private int skillid;
 	private int cityid;
 	private int salaryid;
+	private String jobname;
+	private String companyname;
+	private String starttime;
+	private String endtime;
+	private String department;
+	private int ishide;
+	private String description;
 	
-	@ManyToOne(cascade={CascadeType.ALL}, fetch=FetchType.EAGER)
+	@ManyToOne
 	@JoinColumn(name="resume_id")
 	private Resume resume;
 
@@ -57,6 +64,14 @@ public class WorkEp {
 		this.industryid = industryid;
 	}
 
+	public int getSkillid() {
+		return skillid;
+	}
+
+	public void setSkillid(int skillid) {
+		this.skillid = skillid;
+	}
+
 	public int getCityid() {
 		return cityid;
 	}
@@ -71,6 +86,62 @@ public class WorkEp {
 
 	public void setSalaryid(int salaryid) {
 		this.salaryid = salaryid;
+	}
+
+	public String getJobname() {
+		return jobname;
+	}
+
+	public void setJobname(String jobname) {
+		this.jobname = jobname;
+	}
+
+	public String getCompanyname() {
+		return companyname;
+	}
+
+	public void setCompanyname(String companyname) {
+		this.companyname = companyname;
+	}
+
+	public String getStarttime() {
+		return starttime;
+	}
+
+	public void setStarttime(String starttime) {
+		this.starttime = starttime;
+	}
+
+	public String getEndtime() {
+		return endtime;
+	}
+
+	public void setEndtime(String endtime) {
+		this.endtime = endtime;
+	}
+
+	public String getDepartment() {
+		return department;
+	}
+
+	public void setDepartment(String department) {
+		this.department = department;
+	}
+
+	public int getIshide() {
+		return ishide;
+	}
+
+	public void setIshide(int ishide) {
+		this.ishide = ishide;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	public Resume getResume() {

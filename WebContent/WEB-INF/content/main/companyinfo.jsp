@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>公司详情页</title>
 <link rel="stylesheet" href="public/css/bootstrap(custom).css">
 <link rel="stylesheet" href="public/css/main.css">
 </head>
@@ -54,18 +54,19 @@
 				<div class="companyinfo-title">
 					<p class="lead">招聘职位</p>
 				</div>
-				<table class="table table-hover">
-					<tr>
-						<th>IT技术实习生</th>
-					</tr>
-					<tr>
-						<td>工作城市：武汉</td>
-					     <td>经验：应届毕业生</td> 
-					     <td>学历：不限</td>
-					     <td>薪资：4000——5000</td>
-					</tr>
-					
-				</table>
+				<c:forEach items="${joblist}" var="jl" varStatus="st">
+					<table class="table table-hover">
+						<tr>
+							<th>${jl.jobname}</th>
+						</tr>
+						<tr>
+							<td>工作城市：${m[jl.cityid]}</td>
+						     <td>经验：${m[jl.experienceid]}</td> 
+						     <td>学历：${m[jl.diplomaid]}</td>
+						     <td>薪资：${m[jl.salaryid]}</td>
+						</tr>
+					</table>
+				</c:forEach>
 			</div>
 		</div>
 		

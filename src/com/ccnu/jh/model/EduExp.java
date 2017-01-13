@@ -8,9 +8,8 @@
  */
 package com.ccnu.jh.model;
 
-import javax.persistence.CascadeType;
+
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -22,16 +21,16 @@ import javax.persistence.Table;
 @Table(name="t_educationexperience")
 public class EduExp {
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 	private String starttime;
 	private String endtime;
 	private int schoolid;
 	private String major;
-	private String diplomaid;
+	private int diplomaid;
 	private String description;
 	
-	@ManyToOne(cascade={CascadeType.ALL}, fetch=FetchType.EAGER)
+	@ManyToOne
 	@JoinColumn(name="resume_id")
 	private Resume resume;
 
@@ -75,11 +74,11 @@ public class EduExp {
 		this.major = major;
 	}
 
-	public String getDiplomaid() {
+	public int getDiplomaid() {
 		return diplomaid;
 	}
 
-	public void setDiplomaid(String diplomaid) {
+	public void setDiplomaid(int diplomaid) {
 		this.diplomaid = diplomaid;
 	}
 

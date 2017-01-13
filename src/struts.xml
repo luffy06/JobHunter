@@ -75,10 +75,19 @@
 			method="getPostJob">
 			<result>/WEB-INF/content/center/postjob.jsp</result>
 		</action>
+		<action name="postjob" class="com.ccnu.jh.action.JobAction"
+			method="postJob">
+			<result type="redirect">getpostjob</result>
+		</action>
 		<!-- 候选人 -->
 		<action name="getcandidate" class="com.ccnu.jh.action.ApplyDetailAction"
 			method="getCandidate">
 			<result>/WEB-INF/content/center/candidate.jsp</result>
+		</action>
+		<!-- 牛人 -->
+		<action name="oxerlist" class="com.ccnu.jh.action.UserAction"
+			method="getOxerList">
+			<result>/WEB-INF/content/main/oxerlist.jsp</result>
 		</action>
 		<action name="getuser*">
 			<result>/WEB-INF/content/center/user{1}.jsp</result>

@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>牛人列表页</title>
 <link rel="stylesheet" href="public/css/bootstrap(custom).css">
 <link rel="stylesheet" href="public/css/main.css">
 </head>
@@ -17,7 +17,89 @@
 		<div class="row">
 			<s:action name="sidebar_topframe" executeResult="true"></s:action>
 		</div>
-		
+		<div class="row">
+			<div class="col-md-8 col-md-offset-2">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<p>全部职位
+							<span class="choose">[筛选]</span>
+							<input type="button" value="输入"/>
+						</p> 
+						<ul class="list-inline">
+							<li>薪水</li>
+							<c:forEach items="${slist}" var="sl" varStatus="st">
+								<li><a href="oxerlist?salaryid=${sl}">${m[sl]}</a></li>
+							</c:forEach>
+						</ul>
+						<ul class="list-inline">
+							<li>经验</li>
+							<c:forEach items="${elist}" var="el" varStatus="st">
+								<li><a href="oxerlist?experienceid=${el}">${m[el]}</a></li>                          	
+							</c:forEach>
+						</ul>
+						<ul class="list-inline">
+							<li>学历</li>
+							<c:forEach items="${dlist}" var="dl" varStatus="st">							
+								<li><a href="oxerlist?diplomaid=${dl}">${m[dl]}</a></li>
+							</c:forEach>                             
+						</ul>
+					</div>   	
+				</div>
+				<!--牛人详情-->
+				<c:choose>
+					<c:when test="${! empty oxerlist}">
+						<c:forEach items="${oxerlist}" var="ol" varStatus="st">
+							<div class="panel panel-primary">
+								<div class="panel-body">
+									<div class="row">
+										<div class="col-md-2">
+											<img class="img-circle" src="public/img/userportrait/${ol.portrait}.png" >
+										</div>
+										<div class="col-md-6">
+											<p>${ol.username}</p>
+											<p>期望职位:
+												<c:choose>
+													<c:when test="${count[st.index] != count[st.index+1]}">
+														<c:forEach var="x" begin="${count[st.index]}" end="${count[st.index+1]}" step="1">
+															<span class="label label-primary">${ej[x]}</span>
+														</c:forEach>
+													</c:when>
+													<c:otherwise>
+														暂无期望职位
+													</c:otherwise>
+												</c:choose>
+												
+											</p>
+											<p>
+												<c:if test="${! empty company[st.index]}">
+													<a href="companyinfo?companyid=${company[st.index].id}">${company[st.index].companyname}</a>|
+												</c:if>
+											联系邮箱：${ol.email}</p>
+										</div>
+										<div class="col-md-4">
+											<a href="oxerinfo"><button class="btn btn-default">查看简历</button></a>
+											<a href="favorite?type='oxer'&userid=${ol.id}"><button class="btn btn-default">收藏</button></a>
+											<p>
+												<span class="glyphicon glyphicon-map-marker">武汉</span>
+												<span class="glyphicon glyphicon-briefcase">两年</span>
+												<c:if test="${maxdiploma[st.index] != -1}">
+													<span class="glyphicon glyphicon-th">${m[maxdiploma[st.index]]}</span>
+												</c:if>
+											</p>
+										</div>
+									</div>
+								</div>
+							</div><!--收藏人end-->
+						</c:forEach>
+					</c:when>
+					<c:otherwise>
+						<div class="row">
+							<p>暂无牛人</p>
+						</div>
+					</c:otherwise>
+				</c:choose>
+			</div>
+		</div>
 		<hr>
 		<div class="row">
 			<s:action name="sidebar_footerframe" executeResult="true"></s:action>

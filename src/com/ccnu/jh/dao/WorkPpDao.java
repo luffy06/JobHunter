@@ -2,17 +2,19 @@ package com.ccnu.jh.dao;
 
 import java.util.List;
 
+import org.hibernate.Session;
+
 import com.ccnu.jh.model.WorkPp;
 
 public interface WorkPpDao extends BaseDao<WorkPp> {
-	public void save(WorkPp t);
+	public void save(Session session, WorkPp t);
 	
-	public void update(WorkPp t);
+	public void update(Session session, WorkPp t);
 	
-	public void delete(int id);
+	public void delete(Session session, int id);
 	
-	public WorkPp get(int id);
+	public WorkPp get(Session session, int id);
 	
-	public List<WorkPp> getAll();
+	public List<WorkPp> getAll(Session session);
 
 }

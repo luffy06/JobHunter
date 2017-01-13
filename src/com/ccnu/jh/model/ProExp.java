@@ -8,9 +8,7 @@
  */
 package com.ccnu.jh.model;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -22,7 +20,7 @@ import javax.persistence.Table;
 @Table(name="t_projectexperience")
 public class ProExp {
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 	private String datetime;
 	private String endtime;
@@ -30,8 +28,9 @@ public class ProExp {
 	private String description;
 	private String url;
 	private String achievement;
+	private String role;
 	
-	@ManyToOne(cascade={CascadeType.ALL}, fetch=FetchType.EAGER)
+	@ManyToOne
 	@JoinColumn(name="resume_id")
 	private Resume resume;
 
@@ -89,6 +88,14 @@ public class ProExp {
 
 	public void setAchievement(String achievement) {
 		this.achievement = achievement;
+	}
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
 	}
 
 	public Resume getResume() {

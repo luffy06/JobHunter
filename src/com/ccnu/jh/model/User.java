@@ -14,7 +14,7 @@ import java.util.Set;
 import javax.persistence.*;
 
 @Entity
-@Table(name="user")
+@Table(name="t_user")
 public class User {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -36,10 +36,10 @@ public class User {
 	@PrimaryKeyJoinColumn
 	private Company company;
 	
-	@OneToMany(mappedBy="user", fetch=FetchType.LAZY)
+	@OneToMany(mappedBy="user", fetch=FetchType.EAGER)
 	private Set<Favorite> favorite = new HashSet<Favorite>();
 	
-	@OneToMany(mappedBy="user", fetch=FetchType.LAZY)
+	@OneToMany(mappedBy="user", fetch=FetchType.EAGER)
 	private Set<Job> job = new HashSet<Job>();
 
 	public int getId() {
