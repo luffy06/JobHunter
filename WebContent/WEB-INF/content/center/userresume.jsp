@@ -150,13 +150,33 @@
 				</div><!--期望职位表单-->
 				
 				<!--期望职位列表-->
-				<div class="panel panel-primary">
-					<div class="panel-body">
-						<c:forEach items="${workpp}" var="wp" varStatus="st">
-							<p>${m[wp.cityid]}|${m[wp.skillid]}|${m[wp.salaryid]}</p>
-						</c:forEach>
+				<c:if test="${! empty workpp}">
+					<div class="panel panel-primary">
+						<div class="panel-body">
+							<div class="row">
+								<div class="col-md-10">
+									<div class="col-md-3">期望城市</div>
+									<div class="col-md-1"><span>|</span></div>
+									<div class="col-md-3">期望技能</div>
+									<div class="col-md-1"><span>|</span></div>
+									<div class="col-md-3">薪资范围</div>
+								</div>
+							</div>
+							<hr>
+							<c:forEach items="${workpp}" var="wp" varStatus="st">
+								<div class="row">
+									<div class="col-md-10">
+										<div class="col-md-3">${m[wp.cityid]}</div>
+										<div class="col-md-1"><span>|</span></div>
+										<div class="col-md-3">${m[wp.skillid]}</div>
+										<div class="col-md-1"><span>|</span></div>
+										<div class="col-md-3">${m[wp.salaryid]}</div>
+									</div>
+								</div>
+							</c:forEach>
+						</div>
 					</div>
-				</div>
+				</c:if>
 				
 					
 				<div class="user-post-resume">
@@ -298,14 +318,37 @@
 				</div><!--工作经历-->
 				
 				<!--工作经历列表-->
-				<div class="panel panel-primary">
-					<div class="panel-body">
-						<c:forEach items="${workep}" var="we" varStatus="st">
-							<p>${we.starttime}~${we.endtime}|${we.companyname}|${we.department}|${m[we.cityid]}|${we.jobname}</p>
-							<p>工作内容：${we.description}</p>
-						</c:forEach>
+				<c:if test="${! empty workep}">
+					<div class="panel panel-primary">
+						<div class="panel-body">
+							<div class="row">
+								<div class="col-md-10">
+									<div class="col-md-2">时间段</div>
+									<div class="col-md-2">公司名称</div>
+									<div class="col-md-2">部门</div>
+									<div class="col-md-2">城市</div>
+									<div class="col-md-2">职位名称</div>
+								</div>
+							</div>
+							<hr>
+							<c:forEach items="${workep}" var="we" varStatus="st">
+								<div class="row">
+									<div class="col-md-10">
+										<div class="col-md-2">${we.starttime}~${we.endtime}</div>
+										<div class="col-md-2">${we.companyname}</div>
+										<div class="col-md-2">${we.department}</div>
+										<div class="col-md-2">${m[we.cityid]}</div>
+										<div class="col-md-2">${we.jobname}</div>
+									</div>
+									<div class="col-md-8">
+										<div class="col-md-12">工作内容：${we.description}</div>
+									</div>
+								</div>
+							</c:forEach>
+						</div>
 					</div>
-				</div>
+				</c:if>
+				
 				<div class="user-post-resume">
 					教育经历*
 				</div>
@@ -385,14 +428,39 @@
 				      	</div>
 				    </div>
 				</div><!--教育经历-->
+				
 				<!--教育经历列表-->
-				<div class="panel panel-primary">
-					<div class="panel-body">
-						<c:forEach items="${eduexp}" var="ee" varStatus="st">
-							<p>${ee.starttime}~${ee.endtime}|${m[ee.schoolid]}|${ee.major}|${m[ee.diplomaid]}</p>
-						</c:forEach>
+				<c:if test="${! empty eduexp}">
+					<div class="panel panel-primary">
+						<div class="panel-body">
+							<div class="row">
+								<div class="col-md-10">
+									<div class="col-md-3">时间段</div>
+									<div class="col-md-1"><span>|</span></div>
+									<div class="col-md-2">学校</div>
+									<div class="col-md-1"><span>|</span></div>
+									<div class="col-md-2">专业</div>
+									<div class="col-md-1"><span>|</span></div>
+									<div class="col-md-2">学历</div>
+								</div>
+							</div>
+							<hr>
+							<c:forEach items="${eduexp}" var="ee" varStatus="st">
+								<div class="row">
+									<div class="col-md-10">
+										<div class="col-md-3">${ee.starttime}~${ee.endtime}</div>
+										<div class="col-md-1"><span>|</span></div>
+										<div class="col-md-2">${m[ee.schoolid]}</div>
+										<div class="col-md-1"><span>|</span></div>
+										<div class="col-md-2">${ee.major}</div>
+										<div class="col-md-1"><span>|</span></div>
+										<div class="col-md-2">${m[ee.diplomaid]}</div>
+									</div>
+								</div>
+							</c:forEach>
+						</div>
 					</div>
-				</div>
+				</c:if>
 				
 				<div class="user-post-resume">
 					项目经验*
@@ -470,17 +538,39 @@
 				      	</div>
 				    </div>
 				</div><!--项目经验-->
+				
 				<!--项目经历列表-->
-				<div class="panel panel-primary">
-					<div class="panel-body">
-						<c:forEach items="${proexp}" var="pe" varStatus="st">
-							<p>${pe.starttime}~${pe.endtime}|${pe.projectname}|${pe.role}</p>
-							<p>项目描述：${pe.description}</p>
-							<p>项目业绩：${pe.achievement}</p>
-							<p>项目网站：${pe.url}</p>
-						</c:forEach>
+				<c:if test="${! empty proexp}">
+					<div class="panel panel-primary">
+						<div class="panel-body">
+							<div class="row">
+								<div class="col-md-10">
+									<div class="col-md-3">时间段</div>
+									<div class="col-md-1"><span>|</span></div>
+									<div class="col-md-3">项目名称</div>
+									<div class="col-md-1"><span>|</span></div>
+									<div class="col-md-3">担任角色</div>
+								</div>
+							</div>
+							<c:forEach items="${proexp}" var="pe" varStatus="st">
+								<div class="row">
+									<div class="col-md-10">
+										<div class="col-md-3">${pe.starttime}~${pe.endtime}</div>
+										<div class="col-md-1"><span>|</span></div>
+										<div class="col-md-3">${pe.projectname}</div>
+										<div class="col-md-1"><span>|</span></div>
+										<div class="col-md-3">${pe.role}</div>
+									</div>
+								</div>
+								<div class="col-md-10">
+									<p>项目描述：${pe.description}</p>
+									<p>项目业绩：${pe.achievement}</p>
+									<p>项目网站：${pe.url}</p>
+								</div>
+							</c:forEach>
+						</div>
 					</div>
-				</div>
+				</c:if>
 				<div class="user-post-resume">
 					社交主页*
 				</div>

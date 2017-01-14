@@ -15,12 +15,12 @@
 		<div class="row">
 			<s:action name="sidebar_topframe" executeResult="true"></s:action>
 		</div>
-		<div class="login-content">
-			<div class="row">
-				<div class="col-md-4 col-md-offset-6">
+		<div class="row">
+			<div class="login-content">
+				<div class="col-md-3 col-md-offset-8">
 					<div class="panel panel-primary">
 						<div class="panel-heading">
-							<h1>登录</h1>
+							<h1 class="panel-title">登录</h1>
 						</div>
 						<div class="panel-body">
 							<form class="form-horizontal" action="login" method="post" role="form">
@@ -56,7 +56,7 @@
 		</div>
 	
 		<hr>
-		<div class="row">
+		<div class="row" style="margin-top:500px">
 			<s:action name="sidebar_footerframe" executeResult="true"></s:action>
 		</div>
 	</div>

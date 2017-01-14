@@ -15,8 +15,8 @@
 		<div class="row">
 			<s:action name="sidebar_topframe" executeResult="true"></s:action>
 		</div>
-		<div class="index-content">
-			<div class="row">
+		<div class="row">
+			<div class="index-content">
 				<div class="col-md-10 col-md-offset-2">
 					<form action="joblist" method="post" role="form">
 						<div class="form-group">
@@ -31,6 +31,10 @@
 				</div>
 			</div>
 		</div>
+		<div class="row" style="margin-top:500px">
+			<s:action name="sidebar_footerframe" executeResult="true"></s:action>
+		</div>
+		
 	</div>
 	
 	<script src="public/bower_components/jquery/jquery.js"></script>

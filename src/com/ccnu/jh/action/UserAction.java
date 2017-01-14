@@ -386,8 +386,11 @@ public class UserAction extends ActionSupport {
 		
 		for (int i = 0; i < keylist.size(); i++) {
 			int key = keylist.get(i);
-			if (!map.containsKey(key))
-				map.put(key, ddi.get(session, key).getName());
+			if (!map.containsKey(key)) {
+				Dict d = null;
+				if ((d = ddi.get(session, key)) != null)
+					map.put(key, d.getName());
+			}
 		}
 		act.put("oxer", oxer);
 		act.put("resume", resume);

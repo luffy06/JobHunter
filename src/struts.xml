@@ -67,7 +67,7 @@
 			method="saveWorkEp">
 			<result type="redirect">getuserresume</result>
 		</action>
-		<action name="saveEduExp" class="com.ccnu.jh.action.EduExpAction"
+		<action name="saveeduexp" class="com.ccnu.jh.action.EduExpAction"
 			method="saveEduExp">
 			<result type="redirect">getuserresume</result>
 		</action>
