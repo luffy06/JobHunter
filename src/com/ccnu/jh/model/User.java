@@ -26,7 +26,6 @@ public class User {
 	private String email;
 	private String telnumber;
 	private String portrait;
-	private String workingtime;
 	
 	@OneToOne
 	@PrimaryKeyJoinColumn
@@ -104,14 +103,6 @@ public class User {
 
 	public void setPortrait(String portrait) {
 		this.portrait = portrait;
-	}
-
-	public String getWorkingtime() {
-		return workingtime;
-	}
-
-	public void setWorkingtime(String workingtime) {
-		this.workingtime = workingtime;
 	}
 
 	public Resume getResume() {

@@ -28,6 +28,7 @@ public class Resume {
 	private String birthday;
 	private String advantage;
 	private String homepage;
+	private int workexperience;
 	private int statusid;
 	private int ishide;
 	
@@ -88,6 +89,14 @@ public class Resume {
 
 	public void setHomepage(String homepage) {
 		this.homepage = homepage;
+	}
+	
+	public int getWorkexperience() {
+		return workexperience;
+	}
+
+	public void setWorkexperience(int workexperience) {
+		this.workexperience = workexperience;
 	}
 
 	public int getStatusid() {

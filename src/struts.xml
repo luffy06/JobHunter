@@ -51,8 +51,29 @@
 			method="getUserResume">
 			<result>/WEB-INF/content/center/userresume.jsp</result>
 		</action>
+		<action name="saveresume" class="com.ccnu.jh.action.ResumeAction"
+			method="saveResume">
+			<result type="redirect">getuserresume</result>
+		</action>
+		<action name="saveproexp" class="com.ccnu.jh.action.ProExpAction"
+			method="saveProExp">
+			<result type="redirect">getuserresume</result>
+		</action>
+		<action name="saveworkpp" class="com.ccnu.jh.action.WorkPpAction"
+			method="saveWorkPp">
+			<result type="redirect">getuserresume</result>
+		</action>
+		<action name="saveworkep" class="com.ccnu.jh.action.WorkEpAction"
+			method="saveWorkEp">
+			<result type="redirect">getuserresume</result>
+		</action>
+		<action name="saveEduExp" class="com.ccnu.jh.action.EduExpAction"
+			method="saveEduExp">
+			<result type="redirect">getuserresume</result>
+		</action>
 		<action name="getuserpost" class="com.ccnu.jh.action.ApplyDetailAction"
-			method="getUserPost"></action>
+			method="getUserPost">
+		</action>
 		<!-- 收藏夹 -->
 		<action name="getcomanyfavorite" class="com.ccnu.jh.action.FavoriteAction"
 			method="getCompanyFavorite">
@@ -88,6 +109,10 @@
 		<action name="oxerlist" class="com.ccnu.jh.action.UserAction"
 			method="getOxerList">
 			<result>/WEB-INF/content/main/oxerlist.jsp</result>
+		</action>
+		<action name="oxerinfo" class="com.ccnu.jh.action.UserAction"
+			method="getOxerInfo">
+			<result>/WEB-INF/content/main/oxerinfo.jsp</result>
 		</action>
 		<action name="getuser*">
 			<result>/WEB-INF/content/center/user{1}.jsp</result>

@@ -23,24 +23,38 @@
 					<div class="panel-heading">
 						<p>全部职位
 							<span class="choose">[筛选]</span>
-							<input type="button" value="输入"/>
+							<c:if test="${! empty salary}">
+								<span class="label label-info">
+									<a href="oxerlist?type=deletesal"><span class=" glyphicon glyphicon-remove"></span></a>${salary}
+								</span>
+							</c:if>
+							<c:if test="${! empty experience}">
+								<span class="label label-info">
+									<a href="oxerlist?type=deleteexp"><span class=" glyphicon glyphicon-remove"></span></a>${experience}
+								</span>
+							</c:if>
+							<c:if test="${! empty education}">
+								<span class="label label-info">
+									<a href="oxerlist?type=deletedip"><span class=" glyphicon glyphicon-remove"></span></a>${education}
+								</span>
+							</c:if>
 						</p> 
 						<ul class="list-inline">
 							<li>薪水</li>
 							<c:forEach items="${slist}" var="sl" varStatus="st">
-								<li><a href="oxerlist?salaryid=${sl}">${m[sl]}</a></li>
+								<li><a href="oxerlist?type='add'&salary_id=${sl}">${m[sl]}</a></li>
 							</c:forEach>
 						</ul>
 						<ul class="list-inline">
 							<li>经验</li>
 							<c:forEach items="${elist}" var="el" varStatus="st">
-								<li><a href="oxerlist?experienceid=${el}">${m[el]}</a></li>                          	
+								<li><a href="oxerlist?type='add'&experience_id=${el}">${m[el]}</a></li>
 							</c:forEach>
 						</ul>
 						<ul class="list-inline">
 							<li>学历</li>
 							<c:forEach items="${dlist}" var="dl" varStatus="st">							
-								<li><a href="oxerlist?diplomaid=${dl}">${m[dl]}</a></li>
+								<li><a href="oxerlist?type='add'&diploma_id=${dl}">${m[dl]}</a></li>
 							</c:forEach>                             
 						</ul>
 					</div>   	
@@ -76,12 +90,16 @@
 												</c:if>
 											联系邮箱：${ol.email}</p>
 										</div>
-										<div class="col-md-4">
-											<a href="oxerinfo"><button class="btn btn-default">查看简历</button></a>
-											<a href="favorite?type='oxer'&userid=${ol.id}"><button class="btn btn-default">收藏</button></a>
+										<div class="col-md-3 col-md-offset-1">
+											<a href="oxerinfo?userid=${ol.id}"><button class="btn btn-default">查看简历</button></a>
+											<a href="favorite?type=oxer&userid=${ol.id}"><button class="btn btn-default">收藏</button></a>
 											<p>
-												<span class="glyphicon glyphicon-map-marker">武汉</span>
-												<span class="glyphicon glyphicon-briefcase">两年</span>
+												<c:if test="${bestcity[st.index] != -1}">
+													<span class="glyphicon glyphicon-map-marker">${m[bestcity[st.index]]}</span>
+												</c:if>
+												<c:if test="${workexp[st.index] != -1}">
+													<span class="glyphicon glyphicon-briefcase">${m[workexp[st.index]]}</span>
+												</c:if>
 												<c:if test="${maxdiploma[st.index] != -1}">
 													<span class="glyphicon glyphicon-th">${m[maxdiploma[st.index]]}</span>
 												</c:if>

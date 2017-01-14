@@ -22,7 +22,7 @@ public class ProExp {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
-	private String datetime;
+	private String starttime;
 	private String endtime;
 	private String projectname;
 	private String description;
@@ -42,12 +42,12 @@ public class ProExp {
 		this.id = id;
 	}
 
-	public String getDatetime() {
-		return datetime;
+	public String getStarttime() {
+		return starttime;
 	}
 
-	public void setDatetime(String datetime) {
-		this.datetime = datetime;
+	public void setStarttime(String starttime) {
+		this.starttime = starttime;
 	}
 
 	public String getEndtime() {

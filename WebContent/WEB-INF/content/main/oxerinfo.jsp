@@ -25,87 +25,93 @@
 					<div class="panel-heading">
 						<div class="row">
 							<div class="col-md-2">
-								<img src="img/头像.png" class="img-circle">       
+								<img src="public/img/userportrait/${oxer.portrait}.png" class="img-circle">       
 							</div>
 							<div class="col-md-5">
-								<p class="lead">张三</p>
-								<p>期望职位：java</p>
-								<p>曾任 JAVA|中软国际|联系邮箱123456789@163.com</p>
+								<p class="lead">${oxer.username}</p>
+								<p>联系邮箱：${oxer.email}</p>
+								<c:if test="${! empty resume && resume.ishide == 0}">
+									<p>个人主页：${resume.homepage}</p>
+								</c:if>
 							</div>
 							<div class="col-md-3">
-								<p>离职 -随时到岗</p>
-								<p>
-								<span class="glyphicon glyphicon-map-marker">武汉</span>
-								<span class="glyphicon glyphicon-briefcase">两年</span>
-								<span class="glyphicon glyphicon-book">本科</span>
-								</p>
+								<c:if test="${! empty resume && resume.ishide == 0}">
+									<p>${m[resume.statusid]}</p>
+								</c:if>
 							</div>
 						</div>
 					</div>
 	
 					<div class="panel-body">
 						<hr>
-						<span class="glyphicon glyphicon-hand-down">期望职位</span>
-						<div class="row">
-							<div class="col-md-2 col-md-offset-1">JAVA</div>
-							<div class="col-md-2">￥3k-4k</div>
-							<div class="col-md-2">行业不限</div>
-						</div>
-	
-						<hr>
-						<span class="glyphicon glyphicon-hand-down">工作经历</span>
-						<div class="row">
-							<div class="col-md-2 col-md-offset-1">互联网</div>
-							<div class="col-md-2">中软国际</div>
-							<div class="col-md-2">JAVA</div>
-						</div>
-						<div class="row">
-							<div class="col-md-6 col-md-offset-1 ">
-								<span class="label label-info">后端开发</span>
-								<span class="label label-info">JavaScript</span>
-								<span class="label label-info">JAVA</span><br/>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-6 col-md-offset-1">
-								<span class="glyphicon glyphicon-briefcase"></span>
-								<ol>
-									<li>进行过网站和后台系统软件的开发</li>
-									<li>并对系统进行测试和维护</li>
-								</ol>
-							</div>
-						</div>
-						<hr>
-						<span class="glyphicon glyphicon-hand-down">项目经验</span>
-						<div class="row">
-							<div class="col-md-2 col-md-offset-1">项目内容：</div>
-							<div class="col-md-2">订餐系统</div>
-							<div class="col-md-2">软件工程师</div>
-						</div>
-						<div class="row">
-							<div class="col-md-6 col-md-offset-1">
-								<span class="glyphicon glyphicon-briefcase"></span>
-								<ol>
-									<li>进行过网站和后台系统软件的开发</li>
-									<li>并对系统进行测试和维护</li>
-								</ol>
-							</div>
-						</div>
-						<hr>
-						<span class="glyphicon glyphicon-hand-down">教育经历</span>
-						<div class="row">
-							<div class="col-md-3 col-md-offset-1">华中师范大学</div>
-							<div class="col-md-3">2010-2013</div>
-							<div class="col-md-3">计算机科学与技术</div>
-							<div class="col-md-2">本科</div>
-						</div>
-						<hr>
-						<span class="glyphicon glyphicon-hand-down">我的优势</span>
-						<div class="row">
-							<div class="col-md-offset-1">
-								<p>聪明，有J2EE开发经验</p>
-							</div>
-						</div>
+						<c:choose>
+							<c:when test="${! empty resume && resume.ishide == 1}">
+								<p>该用户已经隐藏了简历</p>
+							</c:when>
+							<c:otherwise>
+								<span class="glyphicon glyphicon-hand-down">期望职位</span>
+								<c:forEach items="${workpp}" var="wp" varStatus="st">
+									<div class="row">
+										<div class="col-md-2 col-md-offset-1">${m[wp.cityid]}</div>
+										<div class="col-md-2">${m[wp.skillid]}</div>
+										<div class="col-md-2">${m[wp.salaryid]}</div>
+										<div class="col-md-2">${m[wp.industryid]}</div>
+									</div>
+								</c:forEach>
+			
+								<hr>
+								<span class="glyphicon glyphicon-hand-down">工作经历</span>
+								<c:forEach items="${workep}" var="we" varStatus="st">
+									<div class="row">
+										<div class="col-md-2 col-md-offset-1">${m[we.industryid]}</div>
+										<div class="col-md-2">${m.companyname}</div>
+										<div class="col-md-2">${we.starttime}~${we.endtime}</div>
+										<div class="col-md-2">${m[we.cityid]}</div>
+										<div class="col-md-2">${we.jobname}</div>
+									</div>
+									<div class="row">
+										<div class="col-md-6 col-md-offset-1">
+											<p>${we.description}</p>
+										</div>
+									</div>
+								</c:forEach>
+								<hr>
+								<span class="glyphicon glyphicon-hand-down">项目经验</span>
+								<c:forEach items="${proexp}" var="pe" varStatus="st">
+									<div class="row">
+										<div class="col-md-2 col-md-offset-1">${pe.projectname}</div>
+										<div class="col-md-2">${pe.starttime}~${pe.endtime}</div>
+										<div class="col-md-2">${pe.role}</div>
+										<div class="col-md-2">${pe.url}</div>
+									</div>
+									<div class="row">
+										<div class="col-md-6 col-md-offset-1">
+											<p>${pe.achievement}</p>
+											<p>${pe.description}</p>
+										</div>
+									</div>
+								</c:forEach>
+								<hr>
+								<span class="glyphicon glyphicon-hand-down">教育经历</span>
+								<c:forEach items="${eduexp}" var="ee" varStatus="st">
+									<div class="row">
+										<div class="col-md-3 col-md-offset-1">${m[ee.schoolid]}</div>
+										<div class="col-md-3">${ee.starttime}~${ee.endtime}</div>
+										<div class="col-md-3">${ee.major}</div>
+										<div class="col-md-2">${m[ee.diplomaid]}</div>
+									</div>
+								</c:forEach>
+								<hr>
+								<span class="glyphicon glyphicon-hand-down">我的优势</span>
+								<div class="row">
+									<div class="col-md-offset-1">
+										<c:if test="${! empty resume}">
+											<p>${resume.advantage}</p>
+										</c:if>
+									</div>
+								</div>
+							</c:otherwise>
+						</c:choose>
 					</div>
 				</div>
 			</div>
