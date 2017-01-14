@@ -15,10 +15,11 @@
 <body>
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-md-8 col-md-offset-4 index-bottom">
+			<hr>
+			<div class="col-md-8 col-md-offset-2 index-bottom">
 				<p>Designed and built with all the love in the world by Group Two. </p>
-				<p>有问题请联系第二小组，邮箱至xxxxx</p>
-				<p>当前版本：V1.0</p>
+				<p>有问题请联系第二小组，邮箱至</p>
+				<p>版本：V1.0</p>
 				<p></p>
 			</div>
 		</div>

@@ -138,8 +138,8 @@
 										</div>
 										
 										<div class="form-group">
-											<div class="col-md-4 col-md-offset-6">
-												<button class="btn btn-primary" type="submit">确定</button>
+											<div class="col-md-9 col-md-offset-3">
+												<button class="btn btn-primary btn-block" type="submit">确定</button>
 											</div>
 										</div>
 									</form>	
@@ -238,6 +238,16 @@
 											   	<input type="text" class="form-control" name="workep.jobname" id="jobname" placeholder="填入职位名称">
 											</div>
 										</div><!--职位名称-->
+										<div class="form-group">
+											<label for="skillmark" class="col-md-3 control-label">城市</label>
+											<div class="col-md-9">
+												<select class="form-control" name="workep.cityid">
+													<c:forEach items="${city}" var="c" varStatus="st">
+														<option value="${c}">${m[c]}</option>
+													</c:forEach>
+												</select>
+											</div>
+										</div><!--城市-->
 										<div class="form-group">
 											<label for="companyname" class="col-md-3 control-label">公司名称</label>
 											<div class="col-md-9">
@@ -418,8 +428,8 @@
 											</div>
 										</div><!--在校经历描述-->
 										<div class="form-group">
-											<div class="col-md-4 col-md-offset-6">
-												<button class="btn btn-primary" type="submit">确定</button>
+											<div class="col-md-9 col-md-offset-3">
+												<button class="btn btn-primary btn-block" type="submit">确定</button>
 											</div>
 										</div>
 									</form>	
@@ -528,8 +538,8 @@
 											</div>
 										</div><!--结束时间-->
 										<div class="form-group">
-											<div class="col-md-4 col-md-offset-6">
-												<button class="btn btn-primary" type="submit">确定</button>
+											<div class="col-md-9 col-md-offset-3">
+												<button class="btn btn-primary btn-block" type="submit">确定</button>
 											</div>
 										</div>
 									</form>	
@@ -545,11 +555,21 @@
 						<div class="panel-body">
 							<div class="row">
 								<div class="col-md-10">
-									<div class="col-md-3">时间段</div>
-									<div class="col-md-1"><span>|</span></div>
-									<div class="col-md-3">项目名称</div>
-									<div class="col-md-1"><span>|</span></div>
-									<div class="col-md-3">担任角色</div>
+									<div class="col-md-3">
+										时间段
+									</div>
+									<div class="col-md-1">
+										<span>|</span>
+									</div>
+									<div class="col-md-3">
+										项目名称
+									</div>
+									<div class="col-md-1">
+										<span>|</span>
+									</div>
+									<div class="col-md-3">
+										担任角色
+									</div>
 								</div>
 							</div>
 							<c:forEach items="${proexp}" var="pe" varStatus="st">

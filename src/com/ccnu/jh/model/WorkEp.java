@@ -27,7 +27,6 @@ public class WorkEp {
 	private int industryid;
 	private int skillid;
 	private int cityid;
-	private int salaryid;
 	private String jobname;
 	private String companyname;
 	private String starttime;
@@ -78,14 +77,6 @@ public class WorkEp {
 
 	public void setCityid(int cityid) {
 		this.cityid = cityid;
-	}
-
-	public int getSalaryid() {
-		return salaryid;
-	}
-
-	public void setSalaryid(int salaryid) {
-		this.salaryid = salaryid;
 	}
 
 	public String getJobname() {
