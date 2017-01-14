@@ -54,11 +54,11 @@
 											<div class="col-md-4">
 												<p>招聘职位：</p>
 												<ul>
-													<c:forEach var="x" begin="${count[st.index]}" end="${count[st.index + 1]}" step="1">
-														<li><a href="jobinfo?jobid=${joblist[x].id}">${joblist[x].jobname}</a></li>
-													</c:forEach>
-												</ul>
-												<ul>
+													<c:if test="${! empty joblist}">
+														<c:forEach var="x" begin="${count[st.index]}" end="${count[st.index + 1]}" step="1">
+															<li><a href="jobinfo?jobid=${joblist[x].id}">${joblist[x].jobname}</a></li>
+														</c:forEach>
+													</c:if>
 													<li><a href="companyinfo?companyid=${cl.id}">更多</a></li>	
 												</ul>
 												

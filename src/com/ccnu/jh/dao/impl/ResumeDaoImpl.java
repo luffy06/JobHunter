@@ -27,7 +27,7 @@ public class ResumeDaoImpl implements ResumeDao {
 	public void delete(Session session, int id) {
 		session.beginTransaction();
 		
-		String hql = "delete resume r where r.id=?";
+		String hql = "delete Resume r where r.id=?";
 		session.createQuery(hql).setParameter(0, id);
 		
 		session.getTransaction().commit();
@@ -45,7 +45,7 @@ public class ResumeDaoImpl implements ResumeDao {
 	public List<Resume> getAll(Session session) {
 		session.beginTransaction();
 		
-		String hql = "from resume r";
+		String hql = "from Resume r";
 		List<Resume> rlist = session.createQuery(hql).list();
 		
 		session.getTransaction().commit();

@@ -67,6 +67,17 @@ public class JobDaoImpl implements JobDao {
 		return joblist;
 	}
 	
+	public List<Job> getByUserId(Session session, int userid) {
+		session.beginTransaction();
+		
+		String hql = "from Job j where j.user.id=?";
+		Query q = session.createQuery(hql).setParameter(0, userid);
+		List<Job> joblist = q.list();
+		
+		session.getTransaction().commit();
+		return joblist;
+	}
+	
 	public List<Job> getAll(Session session) {
 		session.beginTransaction();
 		

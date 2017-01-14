@@ -27,7 +27,7 @@ public class DictDaoImpl implements DictDao {
 	public void delete(Session session, int id) {
 		session.beginTransaction();
 		
-		String hql = "delete dictionary d where d.id=?";
+		String hql = "delete Dict d where d.id=?";
 		session.createQuery(hql).setParameter(0, id);
 		
 		session.getTransaction().commit();

@@ -27,7 +27,7 @@ public class ProExpDaoImpl implements ProExpDao {
 	public void delete(Session session, int id) {
 		session.beginTransaction();
 		
-		String hql = "delete projectexperience pe where pe.id=?";
+		String hql = "delete ProExp pe where pe.id=?";
 		session.createQuery(hql).setParameter(0, id);
 		
 		session.getTransaction().commit();
@@ -45,7 +45,7 @@ public class ProExpDaoImpl implements ProExpDao {
 	public List<ProExp> getAll(Session session) {
 		session.beginTransaction();
 		
-		String hql = "from projectexperience pe";
+		String hql = "from ProExp pe";
 		List<ProExp> pelist = session.createQuery(hql).list();
 		
 		session.getTransaction().commit();

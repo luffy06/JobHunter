@@ -57,7 +57,7 @@
 				<c:forEach items="${joblist}" var="jl" varStatus="st">
 					<table class="table table-hover">
 						<tr>
-							<th>${jl.jobname}</th>
+							<th><a href="jobinfo?jobid=${jl.id}">${jl.jobname}</a></th>
 						</tr>
 						<tr>
 							<td>工作城市：${m[jl.cityid]}</td>

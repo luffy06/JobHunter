@@ -9,8 +9,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>左导航栏</title>
-<link rel="stylesheet" href="public/css/bootstrap(custom).css">
-<link rel="stylesheet" href="public/css/main.css">
 </head>
 <body>
 	<div class="container-fluid">
@@ -57,8 +55,13 @@
 								</a>
 							</div>
 							<div class="list-group">
-								<a href="getuserpost"  class="list-group-item">
+								<a href="getuserposted?pass=0"  class="list-group-item">
 									我的投递
+								</a>
+							</div>
+							<div class="list-group">
+								<a href="getuserposted?pass=1"  class="list-group-item">
+									我的Offer
 								</a>
 							</div>
 				      	</div>
@@ -142,7 +145,5 @@
 			</div>
 		</div>
 	</div>
-	<script src="public/bower_components/jquery/jquery.js"></script>
-	<script src="public/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 </body>
 </html>

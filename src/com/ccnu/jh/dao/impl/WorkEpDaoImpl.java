@@ -27,7 +27,7 @@ public class WorkEpDaoImpl implements WorkEpDao {
 	public void delete(Session session, int id) {
 		session.beginTransaction();
 		
-		String hql = "delete workexperience we where we.id=?";
+		String hql = "delete WorkEp we where we.id=?";
 		session.createQuery(hql).setParameter(0, id);
 		
 		session.getTransaction().commit();
@@ -45,7 +45,7 @@ public class WorkEpDaoImpl implements WorkEpDao {
 	public List<WorkEp> getAll(Session session) {
 		session.beginTransaction();
 		
-		String hql = "from workexperience we";
+		String hql = "from WorkEp we";
 		List<WorkEp> welist = session.createQuery(hql).list();
 		
 		session.getTransaction().commit();

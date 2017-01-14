@@ -21,13 +21,14 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="t_job")
 public class Job {
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 	private int jobtypeid;
 	private int skillid;
@@ -45,7 +46,7 @@ public class Job {
 	private User user;
 	
 	@OneToOne
-	@JoinColumn(name="jobstat_id")
+	@PrimaryKeyJoinColumn
 	private JobStat jobstat;
 	
 	@OneToMany(mappedBy="job", fetch=FetchType.EAGER)

@@ -10,14 +10,18 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
+import com.ccnu.jh.dao.impl.ApplyDetailDaoImpl;
 import com.ccnu.jh.dao.impl.CompanyDaoImpl;
 import com.ccnu.jh.dao.impl.DictDaoImpl;
 import com.ccnu.jh.dao.impl.JobDaoImpl;
 import com.ccnu.jh.dao.impl.JobStatDaoImpl;
+import com.ccnu.jh.dao.impl.ResumeDaoImpl;
+import com.ccnu.jh.model.ApplyDetail;
 import com.ccnu.jh.model.Company;
 import com.ccnu.jh.model.Dict;
 import com.ccnu.jh.model.Job;
 import com.ccnu.jh.model.JobStat;
+import com.ccnu.jh.model.Resume;
 import com.ccnu.jh.model.User;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
@@ -102,7 +106,10 @@ public class JobAction extends ActionSupport {
 			Job job = jl.get(i);
 			hrp.add(job.getUser().getPortrait());
 			hrname.add(job.getUser().getUsername());
-			hrcname.add(job.getUser().getCompany().getShortname());
+			if (job.getUser().getCompany() != null)
+				hrcname.add(job.getUser().getCompany().getShortname());
+			else
+				hrcname.add(null);
 		}
 		
 //		for (int i = 0; i < jobtypelist.size(); i++) {
@@ -128,11 +135,18 @@ public class JobAction extends ActionSupport {
 		Session session = sf.openSession();
 		ActionContext act = ActionContext.getContext();
 		Map<Integer, String> map = (HashMap<Integer, String>)act.getApplication().get("m");
-		Integer jobid = new Integer(ServletActionContext.getRequest().getParameter("jobid"));
+		User user = (User)act.getSession().get("user");
+		Integer jobid = null;
+		if (ServletActionContext.getRequest().getParameter("jobid") != null)
+			jobid = new Integer(ServletActionContext.getRequest().getParameter("jobid"));
+		else
+			jobid = (Integer)act.get("jobid");
 		
 		JobDaoImpl jdi = new JobDaoImpl();
 		DictDaoImpl ddi = new DictDaoImpl();
 		JobStatDaoImpl jsdi = new JobStatDaoImpl();
+		ApplyDetailDaoImpl addi = new ApplyDetailDaoImpl();
+		ResumeDaoImpl rdi = new ResumeDaoImpl();
 		
 		Job job = jdi.get(session, jobid);
 		User hr = job.getUser();
@@ -141,6 +155,7 @@ public class JobAction extends ActionSupport {
 		JobStat js = jsdi.get(session, jobid);
 		if (js == null) {
 			js = new JobStat();
+			js.setId(jobid);
 			js.setBrowsecount(1);
 			js.setSharecount(0);
 			jsdi.save(session, js);
@@ -170,9 +185,26 @@ public class JobAction extends ActionSupport {
 			}
 		}
 		
+		boolean p = false, has = false;
+		if (user != null) {
+			Resume r = rdi.get(session, user.getId());
+			if (r != null) {
+				has = true;
+				ApplyDetail ad = addi.getByUserIdAndJobId(session, user.getId(), jobid);
+				if (ad != null) // 已填简历未投
+					p = true;
+			}
+			else {
+				p = true;
+				has = false;
+			}
+		}
+		
 		act.put("job", job);
 		act.put("company", company);
 		act.put("hr", hr);
+		act.put("posted", p);
+		act.put("has", has);
 		act.getApplication().put("m", map);
 		session.close();
 		sf.close();
@@ -278,4 +310,80 @@ public class JobAction extends ActionSupport {
 		sf.close();
 		return SUCCESS;
 	}
+	
+	public String getIssuedJob() throws Exception {
+		SessionFactory sf = new Configuration().configure().buildSessionFactory();
+		Session session = sf.openSession();
+		ActionContext act = ActionContext.getContext();
+		Map<Integer, String> map = (HashMap<Integer, String>)act.getApplication().get("m");
+		User user = (User)act.getSession().get("user");
+		
+		ArrayList<Integer> skill = new ArrayList<>();
+		ArrayList<Job> jl = new ArrayList<>();
+		ArrayList<JobStat> js = new ArrayList<>();
+		
+		JobDaoImpl jdi = new JobDaoImpl();
+		DictDaoImpl ddi = new DictDaoImpl();
+		JobStatDaoImpl jsdi = new JobStatDaoImpl();
+
+		for (int k = 7; k <= 18; k++) {
+			List<Dict> tmp = ddi.getAllByTypeId(session, k);
+			if (tmp.size() != 0) {
+				for (int i = 0; i < tmp.size(); i++) {
+					Dict d = tmp.get(i);
+					skill.add(d.getDictitemid());
+					if (!map.containsKey(d.getDictitemid())) {
+						map.put(d.getDictitemid(), d.getName());
+					}
+				}
+			}
+		}
+		
+		jl.addAll(jdi.getByUserId(session, user.getId()));
+		for (Job j : jl) {
+			if (j.getJobstat() != null) {
+				js.add(j.getJobstat());
+			}
+			else {
+				JobStat jst = new JobStat();
+				jst.setId(j.getId());
+				jst.setBrowsecount(0);
+				jst.setSharecount(0);
+				jsdi.save(session, jst);
+				js.add(jst);
+			}
+			
+			if (!map.containsKey(j.getCityid()))
+				map.put(j.getCityid(), ddi.get(session, j.getCityid()).getName());
+			if (!map.containsKey(j.getSalaryid()))
+				map.put(j.getSalaryid(), ddi.get(session, j.getSalaryid()).getName());
+			if (!map.containsKey(j.getSkillid()))
+				map.put(j.getSkillid(), ddi.get(session, j.getSkillid()).getName());
+		}
+		
+		act.put("joblist", jl);
+		act.put("js", js);
+		act.put("skill", skill);
+		act.getApplication().put("m", map);
+		session.close();
+		sf.close();
+		return SUCCESS;
+	}
+	
+	public String changeJobStatus() throws Exception {
+		SessionFactory sf = new Configuration().configure().buildSessionFactory();
+		Session session = sf.openSession();
+		Integer jobid = new Integer(ServletActionContext.getRequest().getParameter("jobid"));
+		
+		JobDaoImpl jdi = new JobDaoImpl();
+		
+		Job j = jdi.get(session, jobid);
+		j.setIsclosed(1 - j.getIsclosed());
+		jdi.update(session, j);
+		
+		session.close();
+		sf.close();
+		return SUCCESS;
+	}
+	
 }

@@ -44,17 +44,19 @@
 								<p>${m[job.salaryid]}</p>
 								<p>${m[job.cityid]}|${m[job.experienceid]}|${m[job.diplomaid]}|${m[job.skillid]}</p>
 							</div>
-						</div>		
-						<div class="panel-footer">
-							<a href="clickzan?jobid=${job.id}"><span class="glyphicon glyphicon-thumbs-up">喜欢就点个赞把</span></a>
-						</div>	
+						</div>
+						<c:if test="${! empty user}">
+							<div class="panel-footer">
+								<a href="clickzan?jobid=${job.id}"><span class="glyphicon glyphicon-thumbs-up">喜欢就点个赞把</span></a>
+							</div>
+						</c:if>
 					</div>
 					
 					<!--HR面板-->
 					<div class="panel panel-primary">
 						<div class="panel-body">
 							<div class="col-md-2">
-								<img src="/public/img/${hr.portrait}.png" class="img-circle"/>
+								<img src="public/img/userportrait/${hr.portrait}.png" class="img-circle"/>
 							</div>
 							<div class="col-md-3">
 								<p>HR:${hr.username}</p>
@@ -63,9 +65,30 @@
 								</c:if>
 								<span class="label label-success">在线</span>
 							</div>
-							<div class="col-md-5 col-md-offset-2">
-								<a href="postresume?jobid=${job.id}"><button class="btn btn-warning btn-lg">投递简历</button></a>
-							</div>
+							<c:if test="${! empty user}">
+								<c:choose>
+									<c:when test="${job.isclosed == 1}">
+										<div class="col-md-3 col-md-offset-4">
+											<button class="btn btn-warning btn-lg" disabled="disabled">职位关闭</button>
+										</div>
+									</c:when>
+									<c:when test="${!posted}">
+										<div class="col-md-3 col-md-offset-4">
+											<a href="postresume?jobid=${job.id}"><button class="btn btn-warning btn-lg">投递简历</button></a>
+										</div>
+									</c:when>
+									<c:when test="${!has}">
+										<div class="col-md-3 col-md-offset-4">
+											<a href="getuserresume"><button class="btn btn-warning btn-lg">填写简历</button></a>
+										</div>
+									</c:when>
+									<c:otherwise>
+										<div class="col-md-3 col-md-offset-4">
+											<button class="btn btn-warning btn-lg" disabled="disabled">已经投递</button>
+										</div>
+									</c:otherwise>
+								</c:choose>
+							</c:if>
 						</div>
 					</div>
 					

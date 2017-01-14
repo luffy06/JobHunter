@@ -71,9 +71,6 @@
 			method="saveEduExp">
 			<result type="redirect">getuserresume</result>
 		</action>
-		<action name="getuserpost" class="com.ccnu.jh.action.ApplyDetailAction"
-			method="getUserPost">
-		</action>
 		<!-- 收藏夹 -->
 		<action name="getcomanyfavorite" class="com.ccnu.jh.action.FavoriteAction"
 			method="getCompanyFavorite">
@@ -91,6 +88,10 @@
 		<action name="getissuedjob" class="com.ccnu.jh.action.JobAction"
 			method="getIssuedJob">
 			<result>/WEB-INF/content/center/issuedjob.jsp</result>
+		</action>
+		<action name="changejobstatus" class="com.ccnu.jh.action.JobAction"
+			method="changeJobStatus">
+			<result type="redirect">getissuedjob</result>
 		</action>
 		<action name="getpostjob" class="com.ccnu.jh.action.JobAction"
 			method="getPostJob">
@@ -114,8 +115,14 @@
 			method="getOxerInfo">
 			<result>/WEB-INF/content/main/oxerinfo.jsp</result>
 		</action>
-		<action name="getuser*">
-			<result>/WEB-INF/content/center/user{1}.jsp</result>
+		<!-- 个人中心 -->
+		<action name="getusercenter" class="com.ccnu.jh.action.ApplyDetailAction"
+			method="getUserCenter">
+			<result>/WEB-INF/content/center/usercenter.jsp</result>
+		</action>
+		<action name="getuserposted" class="com.ccnu.jh.action.ApplyDetailAction"
+			method="getUserPosted">
+			<result>/WEB-INF/content/center/userposted.jsp</result>
 		</action>
 		<action name="get*">
 			<result>/WEB-INF/content/user/{1}.jsp</result>
@@ -141,11 +148,11 @@
 		</action>
 		<action name="clickzan" class="com.ccnu.jh.action.JobStatAction"
 			method="addZan">
-			<result type="redirect">jobinfo</result>
+			<result type="redirect">jobinfo?jobid=${jobid}</result>
 		</action>
 		<action name="postresume" class="com.ccnu.jh.action.ResumeAction"
 			method="postResume">
-			<result type="redirect">jobinfo</result>
+			<result type="redirect">jobinfo?jobid=${jobid}</result>
 		</action>
 		
 		<!-- 我的公司 -->

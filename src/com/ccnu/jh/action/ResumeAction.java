@@ -213,7 +213,8 @@ public class ResumeAction extends ActionSupport {
 		SessionFactory sf = new Configuration().configure().buildSessionFactory();
 		Session session = sf.openSession();
 		ActionContext act = ActionContext.getContext();
-		int userid = (Integer)act.getSession().get("userid");
+		User user = (User)act.getSession().get("user");
+		int userid = user.getId();
 		int jobid = new Integer(ServletActionContext.getRequest().getParameter("jobid"));
 		
 		ApplyDetail ad = new ApplyDetail();

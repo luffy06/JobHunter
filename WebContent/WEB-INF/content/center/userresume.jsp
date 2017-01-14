@@ -33,7 +33,7 @@
 							<div class="row">
 								<div class="form-group col-md-10">
 									<select class="form-control col-md-offset-1" name="resume.statusid">
-										<c:if test="${! empty resume.statusid}">
+										<c:if test="${resume.statusid != 0}">
 											<option value="${resume.statusid}">${m[resume.statusid]}</option>
 										</c:if>
 										<c:forEach items="${status}" var="s" varStatus="st">
@@ -59,7 +59,7 @@
 							<div class="row">
 								<div class="form-group col-md-10">
 									<select class="form-control col-md-offset-1" name="resume.workexperience">
-										<c:if test="${! empty resume.workexperience}">
+										<c:if test="${resume.workexperience != 0}">
 											<option value="${resume.workexperience}">${m[resume.workexperience]}</option>
 										</c:if>
 										<c:forEach items="${workexperience}" var="wep" varStatus="st">

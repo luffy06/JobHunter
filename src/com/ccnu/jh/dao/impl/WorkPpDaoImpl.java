@@ -27,7 +27,7 @@ public class WorkPpDaoImpl implements WorkPpDao {
 	public void delete(Session session, int id) {
 		session.beginTransaction();
 		
-		String hql = "delete workpurpose wp where wp.id=?";
+		String hql = "delete WorkPp wp where wp.id=?";
 		session.createQuery(hql).setParameter(0, id);
 		
 		session.getTransaction().commit();
@@ -45,7 +45,7 @@ public class WorkPpDaoImpl implements WorkPpDao {
 	public List<WorkPp> getAll(Session session) {
 		session.beginTransaction();
 		
-		String hql = "from workpurpose wp";
+		String hql = "from WorkPp wp";
 		List<WorkPp> wplist = session.createQuery(hql).list();
 		
 		session.getTransaction().commit();

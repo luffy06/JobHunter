@@ -43,10 +43,13 @@ public class CompanyAction extends ActionSupport {
 		List<Integer> keylist = new ArrayList<>();
 
 		count.add(0);
+		int index = 0;
 		for (int i = 0; i < cl.size(); i++) {
 			Company c = cl.get(i);
 			User hr = c.getUser();
-			count.add(hr.getJob().size());
+			index += hr.getJob().size() - 1;
+			count.add(index);
+			index ++;
 			jl.addAll(hr.getJob());
 			
 			keylist.add(c.getFinanacestageid());

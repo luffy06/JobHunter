@@ -151,8 +151,10 @@ public class UserAction extends ActionSupport {
 		user.setPassword(opwd);
 		
 		if (udi.check(session, user)) {
-			user.setPassword(npwd);
-			udi.update(session, user);
+			User dbuser = udi.get(session, user.getId());
+			dbuser.setPassword(npwd);
+			udi.update(session, dbuser);
+			
 			session.close();
 			sf.close();
 			return SUCCESS;

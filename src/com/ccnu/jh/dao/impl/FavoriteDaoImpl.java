@@ -41,7 +41,7 @@ public class FavoriteDaoImpl implements FavoriteDao {
 	public void delete(Session session, int id) {
 		session.beginTransaction();
 		
-		String hql = "delete favorite f where f.id=?";
+		String hql = "delete Favorite f where f.id=?";
 		session.createQuery(hql).setParameter(0, id);
 		
 		session.getTransaction().commit();
@@ -59,7 +59,7 @@ public class FavoriteDaoImpl implements FavoriteDao {
 	public List<Favorite> getAll(Session session) {
 		session.beginTransaction();
 		
-		String hql = "from favorite f";
+		String hql = "from Favorite f";
 		List<Favorite> flist = session.createQuery(hql).list();
 		
 		session.getTransaction().commit();

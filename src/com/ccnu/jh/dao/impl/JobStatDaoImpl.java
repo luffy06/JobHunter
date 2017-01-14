@@ -28,7 +28,7 @@ public class JobStatDaoImpl implements JobStatDao {
 	public void delete(Session session, int id) {
 		session.beginTransaction();
 		
-		String hql = "delete jobstatistics js where js.id=?";
+		String hql = "delete JobStat js where js.id=?";
 		session.createQuery(hql).setParameter(0, id);
 		
 		session.getTransaction().commit();
@@ -46,7 +46,7 @@ public class JobStatDaoImpl implements JobStatDao {
 	public List<JobStat> getAll(Session session) {
 		session.beginTransaction();
 		
-		String hql = "from jobstatistics js";
+		String hql = "from JobStat js";
 		List<JobStat> jslist = session.createQuery(hql).list();
 		
 		session.getTransaction().commit();
