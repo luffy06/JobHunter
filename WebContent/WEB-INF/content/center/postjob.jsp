@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>发布新职位</title>
 <link rel="stylesheet" href="public/css/bootstrap(custom).css">
 <link rel="stylesheet" href="public/css/main.css">
 </head>
@@ -147,6 +147,5 @@
 	</div>
 	<script src="public/bower_components/jquery/jquery.js"></script>
 	<script src="public/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-	<script src="public/js/main.js"></script>
 </body>
 </html>

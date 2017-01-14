@@ -47,7 +47,7 @@
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="inputsex" class="col-md-3 control-label">姓别</label>
+							<label for="inputsex" class="col-md-3 control-label">性别</label>
 							<div class="col-md-9">
 							   	<select name="user.sex" class="form-control"> 
 								    <option value="1">男</option> 
@@ -107,6 +107,5 @@
 	
 	<script src="public/bower_components/jquery/jquery.js"></script>
 	<script src="public/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="public/js/main.js"></script>
 </body>
 </html>

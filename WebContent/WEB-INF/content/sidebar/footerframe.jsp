@@ -17,15 +17,12 @@
 		<div class="row">
 			<hr>
 			<div class="col-md-8 col-md-offset-2 index-bottom">
-				<p>Designed and built with all the love in the world by Group Two. </p>
-				<p>有问题请联系第二小组，邮箱至</p>
-				<p>版本：V1.0</p>
-				<p></p>
+				<p>Copyright  2016 JobHunter.com京ICP备14018958号-1</p>
+				<p>JobHunter.com.保留所有版权. 使用这些服务遵守用户协议</p>
 			</div>
 		</div>
 	</div>
 	<script src="public/bower_components/jquery/jquery.js"></script>
 	<script src="public/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-	<script src="public/js/main.js"></script>
 </body>
 </html>

@@ -54,7 +54,7 @@
 											<div class="col-md-4">
 												<p>招聘职位：</p>
 												<ul>
-													<c:forEach var="x" begin="${count[st.index]}" end="${count[st.index + 1] - 1}" step="1">
+													<c:forEach var="x" begin="${count[st.index]}" end="${count[st.index + 1]}" step="1">
 														<li><a href="jobinfo?jobid=${joblist[x].id}">${joblist[x].jobname}</a></li>
 													</c:forEach>
 												</ul>
@@ -99,6 +99,5 @@
 	</div>
 	<script src="public/bower_components/jquery/jquery.js"></script>
 	<script src="public/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-	<script src="public/js/main.js"></script>
 </body>
 </html>

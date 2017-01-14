@@ -150,16 +150,12 @@ public class ResumeAction extends ActionSupport {
 		}
 		
 		resume = rdi.get(session, user.getId());
-		if (resume == null) {
-			resume = new Resume();
-			resume.setId(user.getId());
-			rdi.save(session, resume);
+		if (resume != null) {		
+			wp.addAll(resume.getWorkpp());
+			we.addAll(resume.getWorkep());
+			ee.addAll(resume.getEduexp());
+			pe.addAll(resume.getProexp());
 		}
-		
-		wp.addAll(resume.getWorkpp());
-		we.addAll(resume.getWorkep());
-		ee.addAll(resume.getEduexp());
-		pe.addAll(resume.getProexp());
 		
 		act.put("resume", resume);
 		act.put("status", status);

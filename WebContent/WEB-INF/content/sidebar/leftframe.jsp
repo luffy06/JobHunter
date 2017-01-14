@@ -19,7 +19,8 @@
 				<div class="panel panel-default">
 				    <div class="panel-heading" role="tab" id="headingOne">
 				      	<h4 class="panel-title">
-					        <a data-toggle="collapse" data-parent="#user_nav" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+					        <a data-toggle="collapse" data-parent="#user_nav" href="#collapseOne" 
+					        		aria-expanded="true" aria-controls="collapseOne">
 					        	<img src="public/img/userportrait/${user.portrait}.png" class="img-circle" />
 					        </a>
 				      	</h4>
@@ -27,7 +28,7 @@
 				     <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
 				      	<div class="panel-body">
 							<div class="list-group">
-								<a href="getuserinfo"  class="list-group-item">
+								<a href="getuserinfo" class="list-group-item">
 									我的资料
 								</a>
 							</div>
@@ -35,14 +36,15 @@
 				    </div>
 				</div><!--头像和资料部分-->
 				<div class="panel panel-default">
-				    <div class="panel-heading" role="tab" id="headingtwo">
+				    <div class="panel-heading" role="tab" id="headingTwo">
 				      	<h4 class="panel-title">
-				       		<a class="collapsed" data-toggle="collapse" data-parent="#user_nav" href="#collapsetwo" aria-expanded="false" aria-controls="collapsetwo">
+				       		<a class="collapsed" data-toggle="collapse" data-parent="#user_nav" href="#collapseTwo" 
+				       			aria-expanded="false" aria-controls="collapseTwo">
 				         		简历
 				        	</a>
 				      	</h4>
 				    </div>
-				    <div id="collapsetwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingtwo">
+				    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
 				      	<div class="panel-body">
 							<div class="list-group">
 								<a href="getuserresume"  class="list-group-item">
@@ -65,7 +67,8 @@
 			  	<div class="panel panel-default">
 				    <div class="panel-heading" role="tab" id="headingFour">
 				      	<h4 class="panel-title">
-				       		<a class="collapsed" data-toggle="collapse" data-parent="#user_nav" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+				       		<a class="collapsed" data-toggle="collapse" data-parent="#user_nav" href="#collapseFour" 
+				       			aria-expanded="false" aria-controls="collapseFour">
 				         		收藏夹
 				        	</a>
 				      	</h4>
@@ -94,7 +97,8 @@
 			  	<div class="panel panel-default">
 				    <div class="panel-heading" role="tab" id="headingFive">
 				      	<h4 class="panel-title">
-				       		<a class="collapsed" data-toggle="collapse" data-parent="#user_nav" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+				       		<a class="collapsed" data-toggle="collapse" data-parent="#user_nav" href="#collapseFive" 
+				       			aria-expanded="false" aria-controls="collapseFive">
 				         		职位
 				        	</a>
 				      	</h4>
@@ -126,9 +130,10 @@
 			  	</div><!--我的求职状态-->
 			  	
 			 	<div class="panel panel-default">
-			    	<div class="panel-heading" role="tab" id="headingnin">
+			    	<div class="panel-heading" role="tab" id="headingSix">
 			      		<h4 class="panel-title">
-			        		<a class="collapsed" data-toggle="collapse" data-parent="#user_nav" href="#collapsenin" aria-expanded="false" aria-controls="collapsenin">
+			        		<a class="collapsed" data-toggle="collapse" data-parent="#user_nav" href="#collapseSix"
+			        		 aria-expanded="false" aria-controls="collapseSix">
 			          			<a href="getuserupdatepwd">修改密码</a>
 			        		</a> 
 			      		</h4>
@@ -139,6 +144,5 @@
 	</div>
 	<script src="public/bower_components/jquery/jquery.js"></script>
 	<script src="public/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-	<script src="public/js/main.js"></script>
 </body>
 </html>

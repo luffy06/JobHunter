@@ -83,12 +83,13 @@
 				<div class="panel panel-default ">
 					<div class="panel-heading" role="tab" id="workpp">
 						<h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#accordion" href="#occupation" aria-expanded="true" aria-controls="collapseOne">
+							<a data-toggle="collapse" data-parent="#accordion" href="#occupation"
+							 aria-expanded="false" aria-controls="collapseOne">
 							+ 添加期望职位
 							</a>
 						</h4>
 					</div>
-					<div id="occupation" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="workpp">
+					<div id="occupation" class="panel-collapse collapse" role="tabpanel" aria-labelledby="workpp">
 						<div class="panel-body">
 							<div class="row">
 								<div class="col-md-8">
@@ -212,12 +213,13 @@
 				<div class="panel panel-default ">
 					<div class="panel-heading" role="tab" id="workpp">
 						<h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#accordion" href="#experience" aria-expanded="true" aria-controls="collapseOne">
+							<a data-toggle="collapse" data-parent="#accordion" href="#experience"
+							 aria-expanded="false" aria-controls="collapseOne">
 								+ 添加工作经历
 							</a>
 						</h4>
 					</div>
-					<div id="experience" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="workpp">
+					<div id="experience" class="panel-collapse collapse" role="tabpanel" aria-labelledby="workpp">
 						<div class="panel-body">
 							<div class="row">
 								<div class="col-md-8">
@@ -283,20 +285,14 @@
 										</div><!--所属部门-->
 										<div class="form-group">
 											<label for="starttime" class="col-md-3 control-label">开始时间</label>
-											<div class="col-md-9 date form_datetime">
-												<input type="text" class="form-control" name="workep.starttime" readonly="readonly" value=""/>
-												<span class="input-group-addon">
-													<i class="glyphicon glyphicon-calendar"></i>
-												</span>
+											<div class="col-md-9">
+												<input type="text" class="form-control form_datetime" name="workep.starttime" readonly="readonly" value=""/>
 											</div>
 										</div><!--开始时间-->
 										<div class="form-group">
 											<label for="endtime" class="col-md-3 control-label">结束时间</label>
-											<div class="col-md-9 date form_datetime">
-												<input type="text" class="form-control" name="workep.endtime" readonly="readonly" value=""/>
-												<span class="input-group-addon">
-													<i class="glyphicon glyphicon-calendar"></i>
-												</span>
+											<div class="col-md-9">
+												<input type="text" class="form-control form_datetime" name="workep.endtime" readonly="readonly" value=""/>
 											</div>
 										</div><!--结束时间-->
 										<div class="form-group">
@@ -366,12 +362,13 @@
 				<div class="panel panel-default ">
 					<div class="panel-heading" role="tab" id="workpp">
 						<h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#accordion" href="#education" aria-expanded="true" aria-controls="collapseOne">
+							<a data-toggle="collapse" data-parent="#accordion" href="#education"
+							 aria-expanded="false" aria-controls="collapseOne">
 								+ 添加教育经历
 							</a>
 						</h4>
 					</div>
-					<div id="education" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="workpp">
+					<div id="education" class="panel-collapse collapse" role="tabpanel" aria-labelledby="workpp">
 						<div class="panel-body">
 							<div class="row">
 								<div class="col-md-8">
@@ -404,20 +401,14 @@
 										</div><!--学历-->
 										<div class="form-group">
 											<label for="starttime" class="col-md-3 control-label">开始时间</label>
-											<div class="col-md-9 date form_datetime">
-												<input type="text" class="form-control" name="eduexp.starttime" readonly="readonly" value=""/>
-												<span class="input-group-addon">
-													<i class="glyphicon glyphicon-calendar"></i>
-												</span>
+											<div class="col-md-9">
+												<input type="text" class="form-control form_datetime" name="eduexp.starttime" readonly="readonly" value=""/>
 											</div>
 										</div><!--开始时间-->
 										<div class="form-group">
 											<label for="endtime" class="col-md-3 control-label">结束时间</label>
-											<div class="col-md-9 date form_datetime">
-												<input type="text" class="form-control" name="eduexp.endtime" readonly="readonly" value=""/>
-												<span class="input-group-addon">
-													<i class="glyphicon glyphicon-calendar"></i>
-												</span>
+											<div class="col-md-9">
+												<input type="text" class="form-control form_datetime" name="eduexp.endtime" readonly="readonly" value=""/>
 											</div>
 										</div><!--结束时间-->
 										
@@ -479,12 +470,13 @@
 				<div class="panel panel-default ">
 					<div class="panel-heading" role="tab" id="projectexp">
 						<h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#accordion" href="#project" aria-expanded="true" aria-controls="collapseOne">
+							<a data-toggle="collapse" data-parent="#accordion" href="#project" 
+							aria-expanded="false" aria-controls="collapseOne">
 							+ 添加项目经验
 							</a>
 						</h4>
 					</div>
-					<div id="project" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="workpp">
+					<div id="project" class="panel-collapse collapse" role="tabpanel" aria-labelledby="workpp">
 						<div class="panel-body">
 							<div class="row">
 								<div class="col-md-8">
@@ -521,20 +513,14 @@
 										</div><!--项目描述-->
 										<div class="form-group">
 											<label for="starttime" class="col-md-3 control-label">开始时间</label>
-											<div class="col-md-9 date form_datetime">
-												<input type="text" class="form-control" name="proexp.starttime" readonly="readonly" value=""/>
-												<span class="input-group-addon">
-													<i class="glyphicon glyphicon-calendar"></i>
-												</span>
+											<div class="col-md-9">
+												<input type="text" class="form-control form_datetime" name="proexp.starttime" readonly="readonly" value=""/>
 											</div>
 										</div><!--开始时间-->
 										<div class="form-group">
 											<label for="endtime" class="col-md-3 control-label">结束时间</label>
-											<div class="col-md-9 date form_datetime">
-												<input type="text" class="form-control" name="proexp.endtime" readonly="readonly" value=""/>
-												<span class="input-group-addon">
-													<i class="glyphicon glyphicon-calendar"></i>
-												</span>
+											<div class="col-md-9">
+												<input type="text" class="form-control form_datetime" name="proexp.endtime" readonly="readonly" value=""/>
 											</div>
 										</div><!--结束时间-->
 										<div class="form-group">
@@ -597,12 +583,13 @@
 				<div class="panel panel-default ">
 					<div class="panel-heading" role="tab" id="workpp">
 						<h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#accordion" href="#home" aria-expanded="true" aria-controls="collapseOne">
+							<a data-toggle="collapse" data-parent="#accordion" href="#home"
+							 aria-expanded="false" aria-controls="collapseOne">
 								+ 社交主页
 							</a>
 						</h4>
 					</div>
-					<div id="home" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="workpp">
+					<div id="home" class="panel-collapse collapse" role="tabpanel" aria-labelledby="workpp">
 						<div class="panel-body">
 							<div class="row">
 								<p>建议添加能突出你个人实力的主页，如微博，github，dribble，lofter等</p>
@@ -639,6 +626,7 @@
 	<script src="public/bower_components/jquery/jquery.js"></script>
 	<script src="public/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 	<script src="public/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
-	<script src="public/js/main.js"></script>
+	<!-- http://www.bootcss.com/p/bootstrap-datetimepicker/demo.htm -->
+	<script type="text/javascript" src="public/js/main.js"></script>
 </body>
 </html>
