@@ -283,7 +283,7 @@ public class UserAction extends ActionSupport {
 				wep = user.getResume().getWorkexperience();
 			}
 			workexp.add(wep);
-			if (wep != -1 && !map.containsKey(wep))
+			if (wep > 0 && !map.containsKey(wep))
 				map.put(wep, ddi.get(session, wep).getName());
 			int bestcity = -1;
 			for (WorkPp wp : wlist) {
@@ -291,7 +291,7 @@ public class UserAction extends ActionSupport {
 				bestcity = wp.getCityid();
 			}
 			bc.add(bestcity);
-			if (bestcity != -1 && !map.containsKey(bestcity))
+			if (bestcity > 0 && !map.containsKey(bestcity))
 				map.put(bestcity, ddi.get(session, bestcity).getName());
 			count.add(index + wlist.size());
 			index += wlist.size();
@@ -303,7 +303,7 @@ public class UserAction extends ActionSupport {
 			for (EduExp ep : eelist)
 				maxdiploma = Math.max(maxdiploma, ep.getDiplomaid());
 			md.add(maxdiploma);
-			if (maxdiploma != -1 && !map.containsKey(maxdiploma))
+			if (maxdiploma > 0 && !map.containsKey(maxdiploma))
 				map.put(maxdiploma, ddi.get(session, maxdiploma).getName());
 		}
 		
