@@ -25,11 +25,11 @@
 				<!--右侧内容简历-->
 					<div class="user-post-resume">
 						<c:choose>
-							<c:when test="${pass == 0}">
-								已投递的工作
+							<c:when test="${pass == 1}">
+								已收到的Offer
 							</c:when>
 							<c:otherwise>
-								已收到的Offer
+								已投递的工作
 							</c:otherwise>
 						</c:choose>
 					</div>
@@ -45,6 +45,9 @@
 											<p>${m[up.salaryid]}</p>
 											<p>${m[up.cityid]}|${m[up.experienceid]}|${m[up.diplomaid]}|${m[up.skillid]}</p>
 										</div>
+										<div class="col-md-2">
+										<p class="lead">${status[st.index]}</p>
+									</div>
 									</div>		
 									<div class="panel-footer">
 										<a href="jobinfo?jobid=${up.id}">详情</a>

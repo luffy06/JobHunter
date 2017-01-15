@@ -55,7 +55,7 @@
 								</a>
 							</div>
 							<div class="list-group">
-								<a href="getuserposted?pass=0"  class="list-group-item">
+								<a href="getuserposted"  class="list-group-item">
 									我的投递
 								</a>
 							</div>

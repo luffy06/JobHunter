@@ -190,10 +190,12 @@
 								<div class="form-group col-md-10">
 									<c:choose>
 										<c:when test="${! empty resume.advantage}">
-											<input type="text" class="form-control col-md-offset-1" name="resume.advantage" value="${resume.advantage}" id="advantage" placeholder="填入我的优势">
+											<input type="text" class="form-control col-md-offset-1" name="resume.advantage" 
+												value="${resume.advantage}" id="advantage" placeholder="填入我的优势">
 										</c:when>
 										<c:otherwise>
-											<input type="text" class="form-control col-md-offset-1" name="resume.advantage" id="advantage" placeholder="填入我的优势">
+											<input type="text" class="form-control col-md-offset-1" name="resume.advantage" 
+											id="advantage" placeholder="填入我的优势">
 										</c:otherwise>										
 									</c:choose>
 								</div>
@@ -579,40 +581,32 @@
 				</c:if>
 				<div class="user-post-resume">
 					社交主页*
-				</div>
-				<div class="panel panel-default ">
-					<div class="panel-heading" role="tab" id="workpp">
-						<h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#accordion" href="#home"
-							 aria-expanded="false" aria-controls="collapseOne">
-								+ 社交主页
-							</a>
-						</h4>
-					</div>
-					
-					<div class="row">
-						<p>建议添加能突出你个人实力的主页，如微博，github，dribble，lofter等</p>
+				</div>	
+				<div class="row">
+					<div class="col-md-8">
 						<form class="form-horizontal" role="form" action="saveresume?item=url" method="post">
-							<div class="form-group">
-								<div class="col-md-9">
+							<div class="row">
+								<div class="form-group col-md-10">
 									<c:choose>
 										<c:when test="${! empty resume.homepage}">
-											<input type="text" class="form-control" name="resume.homepage" value="${resume.homepage}" id="homepage" placeholder="请填写个人作品网页地址">
+											<input type="text" class="form-control col-md-offset-1" name="resume.homepage" value="${resume.homepage}"
+											 id="homepage" placeholder="请填写个人作品网页地址" data-container="body" data-toggle="popover"
+											 data-placement="bottom" data-content="建议添加能突出你个人实力的主页，如微博，github，dribble，lofter等">
 										</c:when>
 										<c:otherwise>
-											<input type="text" class="form-control" name="resume.homepage" id="homepage" placeholder="请填写个人作品网页地址">
+											<input type="text" class="form-control col-md-offset-1" name="resume.homepage" id="homepage" 
+											placeholder="请填写个人作品网页地址" data-container="body" data-toggle="popover"
+											 data-placement="bottom" data-content="建议添加能突出你个人实力的主页，如微博，github，dribble，lofter等">
 										</c:otherwise>
 									</c:choose>
 								</div>
-							</div><!--个人主页-->
-							<div class="form-group">
-								<div class="col-md-2 col-md-offset-4">
-									<button class="btn btn-primary btn-block" type="submit">确定</button>
+								<div class="form-group col-md-2">
+									<button class="btn btn-primary col-md-offset-10" type="submit">确定</button>
 								</div>
-							</div>
-						</form>	
-					</div>
-				</div><!--社交主页-->
+							</div><!--个人主页-->
+						</form>
+					</div>	
+				</div>
 			</div>
 		</div>
 		<hr>

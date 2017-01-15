@@ -106,6 +106,10 @@
 			method="getCandidate">
 			<result>/WEB-INF/content/center/candidate.jsp</result>
 		</action>
+		<action name="judgeapplydetail" class="com.ccnu.jh.action.ApplyDetailAction"
+			method="judgeApplyDetail">
+			<result type="redirect">getcandidate</result>
+		</action>
 		<!-- 牛人 -->
 		<action name="oxerlist" class="com.ccnu.jh.action.UserAction"
 			method="getOxerList">

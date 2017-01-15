@@ -223,7 +223,7 @@ public class ResumeAction extends ActionSupport {
 		ResumeDaoImpl rdi = new ResumeDaoImpl();
 		String nowtime = (String) new SimpleDateFormat("yyyy-MM-dd HH:mm").format(Calendar.getInstance().getTime());
 		
-		ad.setPass(0);
+		ad.setPass(2);
 		ad.setJob(jdi.get(session, jobid));
 		ad.setResume(rdi.get(session, userid));
 		ad.setCreatetime(nowtime);

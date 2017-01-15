@@ -25,7 +25,7 @@
 				<div class="row">
 					<!--右侧内容投递简历-->
 					<div class="user-post-resume">
-						已投递的工作<a href="getuserposted?pass=0"><small>更多</small></a>
+						已投递的工作<a href="getuserposted"><small>更多</small></a>
 					</div>
 					<!--投递信息列表-->
 					<c:choose>
@@ -37,6 +37,9 @@
 										<p class="lead">${posted.jobname}</p>
 										<p>${m[posted.salaryid]}</p>
 										<p>${m[posted.cityid]}|${m[posted.experienceid]}|${m[posted.diplomaid]}|${m[posted.skillid]}</p>
+									</div>
+									<div class="col-md-2">
+										<p class="lead">${status}</p>
 									</div>
 								</div>		
 								<div class="panel-footer">

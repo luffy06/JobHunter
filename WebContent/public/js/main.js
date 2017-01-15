@@ -5,4 +5,6 @@ $(function() {
 		minView: 'month',
 		autoclose: true
 	});
+	$('#homepage').popover('show');
+
 })
