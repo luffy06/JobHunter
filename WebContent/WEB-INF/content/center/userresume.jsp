@@ -589,31 +589,28 @@
 							</a>
 						</h4>
 					</div>
-					<div id="home" class="panel-collapse collapse" role="tabpanel" aria-labelledby="workpp">
-						<div class="panel-body">
-							<div class="row">
-								<p>建议添加能突出你个人实力的主页，如微博，github，dribble，lofter等</p>
-								<form class="form-horizontal" role="form" action="saveresume?item=url" method="post">
-									<div class="form-group">
-										<div class="col-md-9">
-											<c:choose>
-												<c:when test="${! empty resume.homepage}">
-													<input type="text" class="form-control" name="resume.homepage" value="${resume.homepage}" id="homepage" placeholder="请填写个人作品网页地址">
-												</c:when>
-												<c:otherwise>
-													<input type="text" class="form-control" name="resume.homepage" id="homepage" placeholder="请填写个人作品网页地址">
-												</c:otherwise>
-											</c:choose>
-										</div>
-									</div><!--个人主页-->
-									<div class="form-group">
-										<div class="col-md-2 col-md-offset-4">
-											<button class="btn btn-primary btn-block" type="submit">确定</button>
-										</div>
-									</div>
-								</form>	
-							</div>	
-						</div>
+					
+					<div class="row">
+						<p>建议添加能突出你个人实力的主页，如微博，github，dribble，lofter等</p>
+						<form class="form-horizontal" role="form" action="saveresume?item=url" method="post">
+							<div class="form-group">
+								<div class="col-md-9">
+									<c:choose>
+										<c:when test="${! empty resume.homepage}">
+											<input type="text" class="form-control" name="resume.homepage" value="${resume.homepage}" id="homepage" placeholder="请填写个人作品网页地址">
+										</c:when>
+										<c:otherwise>
+											<input type="text" class="form-control" name="resume.homepage" id="homepage" placeholder="请填写个人作品网页地址">
+										</c:otherwise>
+									</c:choose>
+								</div>
+							</div><!--个人主页-->
+							<div class="form-group">
+								<div class="col-md-2 col-md-offset-4">
+									<button class="btn btn-primary btn-block" type="submit">确定</button>
+								</div>
+							</div>
+						</form>	
 					</div>
 				</div><!--社交主页-->
 			</div>
