@@ -28,7 +28,7 @@
 				<div class="col-md-5">
 					<p class="lead">${company.fullname}</p>
 					<p>公司收藏数：${fcount}|公司岗位数：${jcount}|公司职位申请数：${acount}</p>
-					<a href="favorite?type='company'&companyid=${company.id}"><button class="btn btn-info btn-lg">收藏</button></a>
+					<a href="#"><button class="btn btn-info btn-lg">收藏</button></a>
 				</div>
 				<div class="col-md-4">	
 					<p>行业：${m[company.industryid]}</p>

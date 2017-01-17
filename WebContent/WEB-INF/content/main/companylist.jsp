@@ -43,7 +43,7 @@
 										<div class="panel-body">
 											<div class="col-md-3">
 												<p class="lead">${cl.shortname}</p>
-												<a href="favorite?type='company'&companyid=${cl.id}"><button class="btn btn-info btn-lg">收藏</button></a>
+												<a href="#"><button class="btn btn-info btn-lg">收藏</button></a>
 											</div>
 											<div class="col-md-5 clo-md-offset-3">
 												<p class="lead">${cl.fullname}</p>

@@ -128,6 +128,9 @@
 			method="getUserPosted">
 			<result>/WEB-INF/content/center/userposted.jsp</result>
 		</action>
+		<action name="getuser*">
+			<result>/WEB-INF/content/center/user{1}.jsp</result>
+		</action>
 		<action name="get*">
 			<result>/WEB-INF/content/user/{1}.jsp</result>
 		</action>

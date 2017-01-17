@@ -92,7 +92,7 @@
 										</div>
 										<div class="col-md-3 col-md-offset-1">
 											<a href="oxerinfo?userid=${ol.id}"><button class="btn btn-default">查看简历</button></a>
-											<a href="favorite?type=oxer&userid=${ol.id}"><button class="btn btn-default">收藏</button></a>
+											<a href="#"><button class="btn btn-default">收藏</button></a>
 											<p>
 												<c:if test="${bestcity[st.index] != -1}">
 													<span class="glyphicon glyphicon-map-marker">${m[bestcity[st.index]]}</span>
