@@ -13,7 +13,6 @@ import org.hibernate.cfg.Configuration;
 
 import com.ccnu.jh.dao.impl.ApplyDetailDaoImpl;
 import com.ccnu.jh.dao.impl.DictDaoImpl;
-import com.ccnu.jh.dao.impl.UserDaoImpl;
 import com.ccnu.jh.model.ApplyDetail;
 import com.ccnu.jh.model.Company;
 import com.ccnu.jh.model.Dict;
