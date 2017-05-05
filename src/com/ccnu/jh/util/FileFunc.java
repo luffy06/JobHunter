@@ -21,6 +21,7 @@ public class FileFunc {
 				System.out.println("found file");
 				Document doc = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(file);
 				NodeList nl = doc.getElementsByTagName("item");
+				
 				for (int i = 0; i < nl.getLength(); i++) {
 					Dict d = new Dict();
 					ArrayList<String> valuelist = new ArrayList<>();
