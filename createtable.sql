@@ -1,10 +1,12 @@
+use jobhunter;
+
 create table dictionary(
   dictitemid int(5),
   dicttypeid int(5),
   name varchar(255),
   description text(65535),
   primary key(dictitemid)
-)
+);
 
 create table user(
   userid int(5) auto_increment,
@@ -17,13 +19,13 @@ create table user(
   portrait varchar(255),
   workingtime varchar(255),
   primary key(userid)
-)
+);
 
 create table admin(
   adminid int(5) auto_increment,
   password varchar(255),
   primary key(adminid)
-)
+);
 
 create table company(
   companyid int(5),
@@ -36,7 +38,7 @@ create table company(
   homepage varchar(255),
   logo varchar(255),
   primary key(companyid)
-)
+);
 
 create table resume(
   resumeid int(5),
@@ -47,7 +49,7 @@ create table resume(
   statusid int(5),
   ishide boolean,
   primary key(resumeid)
-)
+);
 
 create table educationexperience(
   educationexperienceid int(5) auto_increment,
@@ -60,7 +62,7 @@ create table educationexperience(
   description text(65535),
   primary key(educationexperienceid),
   foreign key(resumeid) references resume(resumeid)
-)
+);
 
 create table workpurpose(
   workpurposeid int(5) auto_increment,
@@ -71,7 +73,7 @@ create table workpurpose(
   salaryid int(5),
   primary key(workpurposeid),
   foreign key(resumeid) references resume(resumeid)
-)
+);
 
 create table workexperience(
   workexperienceid int(5) auto_increment,
@@ -84,7 +86,7 @@ create table workexperience(
   skillid int(5),
   primary key(workexperienceid),
   foreign key(resumeid) references resume(resumeid)
-)
+);
 
 create table projectexperience(
   projectexperienceid int(5) auto_increment,
@@ -97,7 +99,7 @@ create table projectexperience(
   achievement varchar(255),
   primary key(projectexperienceid),
   foreign key(resumeid) references resume(resumeid)
-)
+);
 
 create table job(
   jobid int(5) auto_increment,
@@ -114,7 +116,7 @@ create table job(
   isclosed boolean,
   primary key(jobid),
   foreign key(userid) references user(userid)
-)
+);
 
 create table jobstatistics(
   jobid int(5),
@@ -122,7 +124,7 @@ create table jobstatistics(
   zancount int(5),
   primary key(jobid),
   foreign key(jobid) references job(jobid)
-)
+);
 
 create table applydetail(
   applyid int(5) auto_increment,
@@ -132,7 +134,7 @@ create table applydetail(
   primary key(applyid),
   foreign key(jobid) references job(jobid),
   foreign key(resumeid) references resume(resumeid)
-)
+);
 
 create table favorite(
   favoriteid int(5),
@@ -140,4 +142,4 @@ create table favorite(
   userid int(5),
   createtime datetime,
   primary key(favoriteid, type)
-)
+);
